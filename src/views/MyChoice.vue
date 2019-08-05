@@ -10,7 +10,7 @@
       </div>
       <mt-tab-container v-model="active">
         <mt-tab-container-item id="boy">
-          男生
+          <my-carousel/>
         </mt-tab-container-item>
         <mt-tab-container-item id="girl">
           女生

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import MyChoice from './views/MyChoice.vue'
-import Car from './components/choice/Carousel'
 
 Vue.use(Router)
 
@@ -12,11 +11,6 @@ export default new Router({
       name: 'mychoice',
       component: MyChoice
     },
-    {
-      path:'/Carousel',
-      name:'carousel',
-      component:Car
-    }
     // {
     //   path: '/about',
     //   name: 'about',
