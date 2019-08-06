@@ -24,6 +24,9 @@
           <!-- 轮播图 -->
           <my-carousel/>
           <!-- 第二部分 -->
+          <h3>特异功能
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
           <part-two/>
           <!-- 轮播图 -->
           <my-carousel/>

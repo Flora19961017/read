@@ -121,8 +121,7 @@ p,h3{
 /* 轮播指示图 */
 .c-carousel >>> .mint-swipe-indicators{
     width: 100%;
-    top: 1.4rem;
-    /* left: 0rem; */
+    top: 0.2rem;
     text-align: right;
 }
 .c-carousel >>> .mint-swipe-indicator.is-active{
