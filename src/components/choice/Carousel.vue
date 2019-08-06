@@ -73,16 +73,18 @@
   }
 </script>
 <style scoped>
-p{
+p,h3{
   padding: 0;
   margin: 0;
 }
 .c-carousel{
   padding: 1rem;
+  background-color: #fff;
 }
 .c-carousel .c-title{
   font-weight: normal;
   color: #000;
+  margin-bottom: 1rem;
 }
 /* 设置轮播图高度 */
 .c-carousel .mint-swipe{
@@ -113,7 +115,7 @@ p{
 }
 .c-carousel .b-author{
   margin-top: 0.4rem;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #9a9a9a;
 }
 /* 轮播指示图 */
@@ -129,9 +131,10 @@ p{
 }
 .c-carousel >>> .mint-swipe-indicator{
   height: 0.2rem;
-  background-color: #666;
+  background-color: #aaa;
   width: 1rem;
-  border-radius: 25%
+  border-radius: 25%;
+  opacity: inherit;
 }
 </style>
 
