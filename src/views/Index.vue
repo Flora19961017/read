@@ -35,6 +35,8 @@
         <p>完结</p>
       </div>
     </div>
+    <!-- 引入全局组件轮播图2 -->
+    <my-carousel></my-carousel>
   </div>
 </template>
 <script>

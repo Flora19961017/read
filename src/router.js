@@ -16,11 +16,6 @@ export default new Router({
       name: 'mychoice',
       component: MyChoice
     },
-    {
-      path:'/Carousel',
-      name:'carousel',
-      component:Car
-    }
     // {
     //   path: '/about',
     //   name: 'about',
