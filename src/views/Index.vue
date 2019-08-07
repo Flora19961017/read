@@ -1,14 +1,16 @@
 <template>
   <div class="index">
-    <div class="title" fixed>
-      <input type="text" name="" id="" class="search">
-      <img src="../assets/index_search.jpg" alt="" class="imgstyle">
-      <mt-navbar v-model="selected">
-        <mt-tab-item id="1">推荐</mt-tab-item>
-        <mt-tab-item id="2">男频</mt-tab-item>
-        <mt-tab-item id="3">女频</mt-tab-item>
-        <mt-tab-item id="4">免费</mt-tab-item>
-      </mt-navbar>
+    <div class="title-border">
+      <div class="title" fixed>
+        <input type="text" name="" id="" class="search">
+        <img src="../assets/index_search.jpg" alt="" class="imgstyle">
+        <mt-navbar v-model="selected">
+          <mt-tab-item id="1">推荐</mt-tab-item>
+          <mt-tab-item id="2">男频</mt-tab-item>
+          <mt-tab-item id="3">女频</mt-tab-item>
+          <mt-tab-item id="4">免费</mt-tab-item>
+        </mt-navbar>
+    </div>
     </div>
      <!-- 轮播图组件 -->
     <index-carousel></index-carousel>
@@ -54,17 +56,22 @@ export default {
 </script>
 <style scoped>
 /* 顶部导航 */
-p{margin: 0;padding: 0;}
   html{
     font-size: 10px;
   }
+  .index{
+    background-color: #F1F1F1;
+  }
+  .index .title-border{
+    border-bottom: 1px solid #F1F1F1;
+  }
   .title{
+    background: #fff;
     border-bottom: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 7px;
-    margin-bottom: 8px;
+    padding:10px 16px;
   }
   .search{
     background-color:#f2f2f2;
@@ -97,9 +104,9 @@ p{margin: 0;padding: 0;}
 .index .nav-img{
   display: flex;
   justify-content: space-between;
-}
-.index .nav-img{
-   margin-top: 10px;
+  background: #fff;
+  padding: 16px;
+  margin-bottom: 4px;
 }
 .index .nav-img-item{
   display: flex;

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from "./views/Index.vue"
 import MyChoice from './views/MyChoice.vue'
-import Car from './components/choice/Carousel'
 import Carousel from "./components/index/Carousel.vue"
+import SignInAndMask from "./views/subpages/SignInAndMask.vue"
 
 Vue.use(Router)
 
@@ -11,6 +11,7 @@ export default new Router({
   routes: [
     {path:'/Index',component:Index},
     {path:'/Carousel2',component:Carousel},
+    {path:"/SignInAndMask",component:SignInAndMask},
     {
       path: '/MyChoice',
       name: 'mychoice',

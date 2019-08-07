@@ -26,9 +26,13 @@ export default {
     .carouselStyle{
         width: 100%;
         height: 100px;
+        padding: 8px 16px 0;
+        background: #fff;
+        box-sizing: border-box;
     }
     .mint-swipe .indexImg{
         width:100%;
+        height: 100%;
     }
     /* 圆点样式 */
     .mint-swipe>>>.mint-swipe-indicators{
