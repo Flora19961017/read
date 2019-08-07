@@ -90,6 +90,9 @@ p,h3{
 .c-carousel .mint-swipe{
   height: 15.5rem;
 }
+.c-carousel >>> .mint-swipe-items-wrap{
+  z-index: 1;
+}
 /* 为item设置弹性布局 */
 .c-carousel .mint-swipe-item{
   display: flex;
