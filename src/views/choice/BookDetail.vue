@@ -30,9 +30,12 @@
     <div class="b-details">
       <p class="bd-detl">【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！</p>
       <div class="bd-flag">
-        <span>奇遇</span>
-        <span>武装</span>
-        <span>扮猪吃老虎</span>
+        <div class="f-btns">
+          <span>奇遇</span>
+          <span>武装</span>
+          <span>扮猪吃老虎</span>
+        </div>
+        <span></span>
       </div>
     </div>
   </div>
@@ -98,7 +101,7 @@
   -webkit-line-clamp: 3;/*行数*/
   -webkit-box-orient: vertical;
 }
-.book-detl .bd-flag>span{
+.book-detl .f-btns>span{
   display: inline-block;
   overflow: hidden;/*超出部分隐藏*/
   text-overflow:ellipsis;/* 超出部分显示省略号 */
@@ -110,6 +113,11 @@
   padding: 0.2rem 0;
   margin-right: 0.5rem;
   border-radius: 35% 
+}
+.book-detl .bd-flag>span{
+  display: block;
+  border: 0.8rem;
+  width: 0.8rem;
 }
 </style>
 

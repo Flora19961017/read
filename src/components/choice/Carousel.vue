@@ -85,6 +85,10 @@ p,h3{
   font-weight: normal;
   color: #000;
   margin-bottom: 1rem;
+  overflow: hidden;/*超出部分隐藏*/
+  text-overflow:ellipsis;/* 超出部分显示省略号 */
+  white-space: nowrap;/*规定段落中的文本不进行换行 */
+  width: 6.6rem;/*需要配合宽度来使用*/
 }
 /* 设置轮播图高度 */
 .c-carousel .mint-swipe{

@@ -61,6 +61,10 @@ p{
 .pw-page .b-title{
   margin-top: 0.4rem;
   color: #000;
+  overflow: hidden;/*超出部分隐藏*/
+  text-overflow:ellipsis;/* 超出部分显示省略号 */
+  white-space: nowrap;/*规定段落中的文本不进行换行 */
+  width: 6.6rem;/*需要配合宽度来使用*/
 }
 .pw-page .b-author{
   margin-top: 0.4rem;
