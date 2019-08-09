@@ -6,6 +6,9 @@
 </template>
 
 <style>
+html{
+  font-size: 15px;
+}
 body,p{
   margin: 0;
   padding: 0;

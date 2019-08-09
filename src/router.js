@@ -6,6 +6,7 @@ import Carousel from "./components/index/Carousel.vue"
 import SignInAndMask from "./views/subpages/SignInAndMask.vue"
 import More from './views/choice/More'
 import BookDetail from './views/choice/BookDetail'
+import WriteComm from './views/choice/WriteComm'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       name: 'bookdetail',
       component: BookDetail
     },
+    {
+      path:'/WriteComm',
+      name:'writecomm',
+      component:WriteComm
+    }
     // {
     //   path: '/about',
     //   name: 'about',

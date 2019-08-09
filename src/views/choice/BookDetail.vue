@@ -4,6 +4,7 @@
       <mt-button icon="back" slot="left" ></mt-button>
       <mt-button icon="more" slot="right" ></mt-button>
     </mt-header>
+    <!-- 最上方描述 -->
     <div class="summarize">
       <div class="s-img">
         <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
@@ -27,17 +28,61 @@
         </div>
       </div>
     </div>
+    <!-- 简介 -->
     <div class="b-details">
       <p class="bd-detl">【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！</p>
       <div class="bd-flag">
-        <span>奇遇</span>
-        <span>武装</span>
-        <span>扮猪吃老虎</span>
+        <div class="f-btns">
+          <span>奇遇</span>
+          <span>武装</span>
+          <span>扮猪吃老虎</span>
+        </div>
+        <span></span>
       </div>
     </div>
+    <!-- 简介下方的目录、会员 -->
+    <div class="to-other">
+      <div class="t-directory">
+        <span class="t-title">目录</span>
+        <span class="t-contents">共500章</span>
+        <span class="t-arrow">&gt;</span>
+      </div>
+      <div class="t-vip">
+        <div class="t-title">
+          <img src="../../../public\imgs\choice\vip.jpg" alt="">
+          开通vip，畅通各种包月专区小说
+        </div>
+        <span class="t-arrow">&gt;</span>
+      </div>
+    </div>
+    <!-- 书评 -->
+    <comment/>
+    <!-- 类别 -->
+    <h3>特异功能
+      <span class="more">更多&nbsp;<i>&gt;</i></span>
+    </h3>
+    <two-rows/>
   </div>
 </template>
+<script>
+import Comm from '../../components/choice/subPage/Comment'
+import TwoRows from '../../components/choice/TwoRows'
+export default {
+  data(){
+    return{
+
+    }
+  },
+  components:{
+    "comment":Comm,
+    "two-rows":TwoRows
+  }
+}
+</script>
 <style scoped>
+.book-detl{
+  background-color: #f5f5f5;
+}
 .book-detl .mint-header{
   background-color: #fff;
   color: #000; 
@@ -51,6 +96,7 @@
   display: flex;
   background-color: rgba(0,0,0,.5);
   color: #fff;
+  padding: 0 1rem;
 }
 .book-detl .s-img{
   width: 27%;
@@ -89,7 +135,8 @@
 }
 /* 书本详细介绍 */
 .book-detl .b-details{
-  padding-top: 2rem;
+  padding: 2rem 1rem 0 1rem;
+  background-color: #fff;
 }
 .book-detl .bd-detl{
   overflow: hidden;
@@ -98,18 +145,103 @@
   -webkit-line-clamp: 3;/*行数*/
   -webkit-box-orient: vertical;
 }
-.book-detl .bd-flag>span{
+/* 标签 */
+.book-detl .bd-flag{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.7rem;
+}
+.book-detl .f-btns>span{
   display: inline-block;
   overflow: hidden;/*超出部分隐藏*/
   text-overflow:ellipsis;/* 超出部分显示省略号 */
   white-space: nowrap;/*规定段落中的文本不进行换行 */
   width: 3.5rem;/*需要配合宽度来使用*/
   text-align: center;
-  border: 1px solid #ccc;
-  background-color: #eee;
+  border: 1px solid #f5f5f5;
+  background-color: #f6f6f6;
   padding: 0.2rem 0;
   margin-right: 0.5rem;
-  border-radius: 35% 
+  border-radius: 35% ;
+  color: #999;
+  font-size: 0.9rem;
+}
+/* span小三角 */
+.book-detl .bd-flag>span{
+  border-top: 0.3rem solid #666;
+  border-right: 0.3rem solid transparent;
+  border-left: 0.3rem solid transparent;
+  border-bottom: 0.3rem solid transparent;
+}
+/* 简介下方的目录、会员 */
+.book-detl .to-other{
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  background-color: #fff;
+}
+.book-detl .to-other>div{
+  border-top: 1px solid #ddd;
+  padding: 0.2rem 0;
+}
+.book-detl .t-directory{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.3rem;
+}
+.book-detl .to-other .t-title{
+  color: #000;
+}
+.book-detl .t-contents{
+  width: 80%;
+  padding-left: 0.7rem;
+  border-left: 1px solid #ddd;
+  color: #999;
+  font-size: 0.8rem;
+}
+.book-detl .to-other .t-arrow{
+  color: #aaa;
+  font-size: 1.1rem;
+}
+.book-detl .to-other .t-vip{
+  display: flex;
+  justify-content: space-between;
+}
+.book-detl .t-title>img{
+  width: 1rem;
+}
+/* 评论 */
+.book-detl .com-part{
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+}
+/* 类别 */
+.book-detl h3{
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  font-weight: normal;
+  padding: 1rem 1rem 0 1rem;
+  background-color: #fff;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.book-detl h3 .more{
+  color: #9a9a9a;
+  font-size: 1rem;
+}
+.book-detl h3 .more>i{
+  color: #ccc;
+}
+.book-detl .tr-other{
+  border: 0;
+  margin-top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 1rem;
 }
 </style>
 

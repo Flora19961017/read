@@ -33,6 +33,10 @@
 .tr-other .o-item .o-title{
   color: #000;
   font-size: 0.9rem;
+  overflow: hidden;/*超出部分隐藏*/
+  text-overflow:ellipsis;/* 超出部分显示省略号 */
+  white-space: nowrap;/*规定段落中的文本不进行换行 */
+  width: 6.6rem;/*需要配合宽度来使用*/
 }
 </style>
 
