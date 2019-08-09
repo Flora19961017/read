@@ -37,40 +37,116 @@
             <div class="maskdetail">
                 <div>
                     <p>选择一本小说加入书架</p>
-                    <p>10书币</p>
+                    <p class="txtstyle">10书币</p>
                 </div>
                 <div>
-                    <div>去完成</div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
                 </div>
             </div>
             <div class="maskdetail bordertop">
                 <div>
                     <p>完成一次充值</p>
-                    <p>500书币</p>
+                    <p class="txtstyle">500书币</p>
                 </div>
                 <div>
-                    <div>去完成</div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
                 </div>
             </div>
             <div class="maskdetail bordertop">
                 <div>
                     <p>完善偏好资料</p>
-                    <p>300书币</p>
+                    <p class="txtstyle">300书币</p>
                 </div>
                 <div>
-                    <div>去完成</div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
                 </div>
             </div>
             <div class="maskdetail bordertop">
                 <div>
                     <p>关注微信公众号</p>
-                    <p>5书币</p>
+                    <p class="txtstyle">5书币</p>
                 </div>
                 <div>
-                    <div>去完成</div>
+                   <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
                 </div>
             </div>
-         </div>
+        </div>
+        <!-- 日常任务 -->
+        <div class="new-mask">
+            <div class="new-mask-title">日常任务</div>
+            <div class="maskdetail">
+                <div>
+                    <p>累计阅读小说30分钟</p>
+                    <p class="txtstyle">10书币</p>
+                </div>
+                <div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
+                </div>
+            </div>
+            <div class="maskdetail bordertop">
+                <div>
+                    <p>累计阅读小说60分钟</p>
+                    <p class="txtstyle">15书币</p>
+                </div>
+                <div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
+                </div>
+            </div>
+            <div class="maskdetail bordertop">
+                <div>
+                    <p>累计阅读小说120分钟</p>
+                    <p class="txtstyle">30书币</p>
+                </div>
+                <div>
+                    <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
+                </div>
+            </div>
+            <div class="maskdetail bordertop">
+                <div>
+                    <p>累计阅读小说180分钟</p>
+                    <p class="txtstyle">35书币</p>
+                </div>
+                <div>
+                   <div><img src="../../../public/imgs/sign_mask/achive.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <!-- 首充超级福利 -->
+        <div class="add">
+            <div>首充超级福利</div>
+            <div class="addtxt">
+                <i>充值30元额外赠送</i>
+                <span>1500书币</span>
+            </div>
+            <div class="addtxt">
+                <i>充值50元额外赠送</i>
+                <span>3000书币</span>
+            </div>
+            <div class="addtxt">
+                <i>充值98元额外赠送</i>
+                <span>8000书币和7天VIP月卡</span>
+            </div>
+            <div class="addtxt">
+                <i>充值198元额外赠送</i>
+                <span>19800书币和30天VIP</span>
+            </div>
+             <!-- 去充值按钮 -->
+            <button class="btn">去充值</button>
+        </div>
+        <!-- 意见反馈 -->
+        <div class="advice">
+            <div class="advicetit">意见反馈</div>
+            <p class="ptxt">猫扑小说读友群火热招募中！</p>
+            <p class="ptxt">这里有志同道合的书友，让你畅谈人生</p>
+            <p class="ptxt">这里有可爱的产品经理/运营小姐姐</p>
+            <p class="ptxt">这里还有各种读书福利/红包福利，让你收福利收到手软！</p>
+            <p class="ptxt">快来加入我们吧，据说错过会让你后悔一年哦！</p>
+            <p class="ptxt pcall">QQ1群：678322520</p>
+            <p class="ptxt pcall">QQ2群：677793929(满)</p>
+            <p class="ptxt pcall">QQ3群：662636906(满)</p>
+            <p class="ptxt pcall">QQ4群：791742258(新)</p>
+            <p class="ptxt">等你哟!</p>
+        </div>
     </div>
 </template>
 <script>
@@ -146,15 +222,57 @@ export default {
         padding: 10px 16px;
     }
     .mask .maskdetail{
-        border-bottom: 1px solid #f1f1f1;
+        border: 1px solid #f1f1f1;
         display: flex;
-        font-size: 12px;
+        /* font-size: 12px; */
         justify-content: space-between;
         padding: 20px 10px 10px;
-        margin-bottom: 10px;
+        margin: 10px 0;
     }
     .mask .bordertop{
         border-top: 1px solid #f1f1f1;
+    }
+    .mask .txtstyle{
+        color: #FF9709
+    }
+    /* 首充 */
+    .mask .add{
+        background: #fff;
+        margin-top: 3px;
+        padding: 10px 16px;
+    }
+    .mask .addtxt{
+        margin:8px 0;
+    }
+    .mask .addtxt>span{
+        color: #FF9709;
+    }
+    /* 去充值按钮 */
+    .mask .btn{
+        background: #13CAD6;
+        width: 100%;
+        outline: none;
+        border-radius: 50px;
+        border: none;
+        padding: 6px;
+        color: #fff;
+        font-size: 16px;
+    }
+    /* 意见反馈 */
+    .mask .advice{
+        background: #fff;
+        padding: 10px 16px;
+        margin-top: 3px;
+    }
+    .mask .advicetit{
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .mask .ptxt{
+        font-size: 14px;
+    }
+    .mask .pcall{
+        font-weight: bold;
     }
 </style>
 

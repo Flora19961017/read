@@ -56,6 +56,7 @@ p{
 }
 .pw-page .b-item>img{
   width: 100%;
+  border-radius: 0.2rem; 
 }
 .pw-page .b-title{
   margin-top: 0.4rem;

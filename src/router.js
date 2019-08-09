@@ -4,6 +4,8 @@ import Index from "./views/Index.vue"
 import MyChoice from './views/MyChoice.vue'
 import Carousel from "./components/index/Carousel.vue"
 import SignInAndMask from "./views/subpages/SignInAndMask.vue"
+import More from './views/choice/More'
+import BookDetail from './views/choice/BookDetail'
 
 Vue.use(Router)
 
@@ -16,6 +18,16 @@ export default new Router({
       path: '/MyChoice',
       name: 'mychoice',
       component: MyChoice
+    },
+    {
+      path: '/More',
+      name: 'more',
+      component: More
+    },
+    {
+      path: '/BookDetail',
+      name: 'bookdetail',
+      component: BookDetail
     },
     // {
     //   path: '/about',

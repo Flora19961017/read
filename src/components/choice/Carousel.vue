@@ -90,6 +90,9 @@ p,h3{
 .c-carousel .mint-swipe{
   height: 15.5rem;
 }
+.c-carousel >>> .mint-swipe-items-wrap{
+  z-index: 1;
+}
 /* 为item设置弹性布局 */
 .c-carousel .mint-swipe-item{
   display: flex;
@@ -121,8 +124,7 @@ p,h3{
 /* 轮播指示图 */
 .c-carousel >>> .mint-swipe-indicators{
     width: 100%;
-    top: 1.4rem;
-    /* left: 0rem; */
+    top: 0.2rem;
     text-align: right;
 }
 .c-carousel >>> .mint-swipe-indicator.is-active{

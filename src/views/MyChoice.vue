@@ -1,6 +1,7 @@
 <template>
   <div class="choice-page">
-    <div class="title">精选</div>
+    <mt-header fixed title="精选">
+    </mt-header>
     <div class="main-part">
       <div class="nav-bar">
         <mt-navbar v-model="active">
@@ -14,19 +15,52 @@
           <my-carousel/>
           <!-- 第二部分 -->
           <h3>特异功能
-            <span class="more">更多&nbsp;<i>&gt;</i></span>
+            <span class="more" @click="goMore">更多&nbsp;<i>&gt;</i></span>
           </h3>
           <part-two/>
           <!-- 轮播图 -->
           <my-carousel/>
+          <!-- 第四部分 -->
+          <h3>废柴逆袭
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
+          <part-four/>
+          <!-- 轮播图 -->
+          <my-carousel/>
+          <!-- 第六部分 -->
+          <h3>夜场欢场
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
+          <div class="part-six">
+            <book-comm/>
+            <book-comm/>
+          </div>
         </mt-tab-container-item>
         <mt-tab-container-item id="girl">
           <!-- 轮播图 -->
           <my-carousel/>
           <!-- 第二部分 -->
+          <h3>报复渣男
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
           <part-two/>
           <!-- 轮播图 -->
           <my-carousel/>
+          <!-- 第四部分 -->
+          <h3>虐恋情深
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
+          <part-four/>
+          <!-- 轮播图 -->
+          <my-carousel/>
+          <!-- 第六部分 -->
+          <h3>鬼夫来袭
+            <span class="more">更多&nbsp;<i>&gt;</i></span>
+          </h3>
+          <div class="part-six">
+            <book-comm/>
+            <book-comm/>
+          </div>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
@@ -34,6 +68,8 @@
 </template>
 <script>
 import PartTwo from '../components/choice/PartTwo'
+import PartFour from '../components/choice/ParFour'
+import BookComm from '../components/choice/BookComm'
 export default {
   data(){
     return{
@@ -41,7 +77,14 @@ export default {
     }
   },
   components:{
-    "part-two":PartTwo
+    "part-two":PartTwo,
+    "part-four":PartFour,
+    "book-comm":BookComm
+  },
+  methods:{
+    goMore(){
+      this.$router.push('/More');
+    }
   }
 }
 </script>
@@ -53,24 +96,20 @@ h3{margin: 0;padding: 0}
 .choice-page{
   background: #F6F6F6
 }
-.choice-page .title{
-  border-bottom:1px solid #ddd;
-  position: fixed;
-  top:0;
-  height: 4rem;
-  width: 100%;
-  line-height: 4rem;
-  text-align: center;
-  z-index: 9999;
+.choice-page .mint-header{
   background-color: #fff;
+  color: #000; 
+  border-bottom: 1px solid #ddd;
+  z-index: 9999;
 }
 .choice-page .main-part{
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 /* nav */
 .choice-page .nav-bar{
   background-color: #F9F9F9;
   padding-left: 1rem;
+  padding-bottom: 0.2rem;
 }
 .choice-page .mint-navbar{
   width: 6rem;
@@ -97,6 +136,17 @@ h3{margin: 0;padding: 0}
 }
 .choice-page h3 .more>i{
   color: #ccc;
+}
+.choice-page .pf-page{
+  margin-bottom: 0.5rem;
+}
+/* 第六部分 */
+.choice-page .part-six{
+  padding: 1rem;
+  background: #fff;
+}
+.choice-page .book-comm+.book-comm{
+  margin-top: 1rem;
 }
 </style>
 
