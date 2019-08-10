@@ -7,11 +7,19 @@ import SignInAndMask from "./views/subpages/SignInAndMask.vue"
 import More from './views/choice/More'
 import BookDetail from './views/choice/BookDetail'
 import WriteComm from './views/choice/WriteComm'
+import Mine from './views/mine/Mine.vue'
+import Inform from './views/mine/Inform.vue'
+import Message from './views/mine/Message.vue'
+import Balance from './views/mine/Balance.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Inform",component:Inform},
+    {path:"/Message",component:Message},
+    {path:"/Balance",component:Balance},
+    {path:"/Mine",component:Mine},
     {path:'/Index',component:Index},
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
