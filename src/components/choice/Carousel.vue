@@ -69,6 +69,13 @@
         
       }
     },
+    created(){
+      
+    },
+    methods: {
+      
+      
+    },
 
   }
 </script>
