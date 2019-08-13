@@ -11,12 +11,14 @@ import Mine from './views/mine/Mine.vue'
 import Inform from './views/mine/Inform.vue'
 import Message from './views/mine/Message.vue'
 import Balance from './views/mine/Balance.vue'
+import Welfare from './views/mine/Welfare.vue'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Welfare",component:Welfare},
     {path:"/Inform",component:Inform},
     {path:"/Message",component:Message},
     {path:"/Balance",component:Balance},

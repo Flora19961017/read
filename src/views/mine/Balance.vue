@@ -35,7 +35,7 @@
             </div>
             <div class="d-flex-s3">
               <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>298猫豆</span>
-              <div class="posi">
+              <div class="posi m-top">
                 <span class="circle-f3 circle-posi1"></span>
                 <span class="f-bg-s3">去兑换</span>
                 <span class="circle-f3 circle-posi2"></span>
@@ -48,11 +48,11 @@
         <div class="li-div">
             <span class="bg-littleImg bg-img-stock"></span>
             <div class="d-flex">
-              <span class="f-s1">免1小时广告券</span>
-              <i class="f-s2">近30天已兑换1209件</i>
+              <span class="f-s1">免3小时广告券</span>
+              <i class="f-s2">近30天已兑换525件</i>
             </div>
             <div class="d-flex-s3">
-              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>298猫豆</span>
+              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>698猫豆</span>
               <div class="posi">
                 <span class="circle-f3 circle-posi1"></span>
                 <span class="f-bg-s3">去兑换</span>
@@ -65,11 +65,11 @@
         <div class="li-div">
             <span class="bg-littleImg bg-img-stock"></span>
             <div class="d-flex">
-              <span class="f-s1">免1小时广告券</span>
-              <i class="f-s2">近30天已兑换1209件</i>
+              <span class="f-s1">免24小时广告券</span>
+              <i class="f-s2">近30天已兑换118件</i>
             </div>
             <div class="d-flex-s3">
-              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>298猫豆</span>
+              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>1388猫豆</span>
               <div class="posi">
                 <span class="circle-f3 circle-posi1"></span>
                 <span class="f-bg-s3">去兑换</span>
@@ -111,8 +111,7 @@ export default {
    display: inline-block;
    width: 17px;
    height:17px;
-   background:url(../../../public/imgs/mine/arr-left.png)no-repeat;
-   
+   background:url(../../../public/imgs/mine/arr-left.png) no-repeat;
   }
  /* 设置清除浮动 */
  .clear{
@@ -178,12 +177,12 @@ export default {
 .board{
   margin-left:10px;
   padding:15px 0;
-  font-size:14px;
+  font-size:15px;
 }
 /* 设置ul样式 */
 .ulStyle{
   margin:0;
-  padding:10px 15px;
+  padding:0px 15px;
   list-style: none;
 }
 /* 设置li及li里面样式 */
@@ -208,12 +207,12 @@ export default {
 /* 设置字体 */
 .f-s1{
   font-size:15px;
-  margin-top:15px;
+  margin-top:16px;
 }
 .f-s2{
   font-size:12px;
   color:orange;
-  margin-bottom:18px;
+  margin-bottom:25px;
 }
 .bg-img-ingot-sml{
   width:20px;
@@ -262,4 +261,6 @@ right:43px;
 .circle-posi2{
 right:-17px;
 }
+/* 设置上外边距 */
+
 </style>
