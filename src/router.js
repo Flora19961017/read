@@ -12,6 +12,7 @@ import Inform from './views/mine/Inform.vue'
 import Message from './views/mine/Message.vue'
 import Balance from './views/mine/Balance.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +24,7 @@ export default new Router({
     {path:'/Index',component:Index},
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
+
     {
       path: '/MyChoice',
       name: 'mychoice',

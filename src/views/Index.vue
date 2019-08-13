@@ -1,104 +1,95 @@
 <template>
   <div class="index">
-    <!-- 头部子组件 -->
-    <myheader></myheader>
-     <!-- 轮播图组件 -->
-    <index-carousel></index-carousel>
-    <!-- 5个图标栏 -->
-    <div class="nav-img">
-      <div class="nav-img-item">
-        <img src="../../public/imgs/index/nav1.png" alt="" class="firstImg"> 
-        <p>送书币</p>
-      </div>
-      <div class="nav-img-item"> 
-        <img src="../../public/imgs/index/nav2.jpg" alt="">
-        <p>排行</p>
-      </div>
-      <div class="nav-img-item">
-        <img src="../../public/imgs/index/nav3.png" alt="">
-        <p>分类</p>
-      </div>
-      <div class="nav-img-item">
-        <img src="../../public/imgs/index/nav4.png" alt="">
-        <p>包月</p>
-      </div>
-      <div class="nav-img-item">
-        <img src="../../public/imgs/index/nav5.png" alt="">
-        <p>完结</p>
-      </div>
+    <!-- 面板组件 -->
+    <div class="foot">
+        <!-- 点击底部按钮跳转至页面 -->
+        <mt-tab-container v-model="active">
+            <mt-tab-container-item id="shelf">
+                <!-- 跳转至书架页面 -->
+            </mt-tab-container-item>
+            <mt-tab-container-item id="bookcity">
+                <!-- 跳转至书城页面 -->
+                <bookcity></bookcity>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="goodsel">
+                <!-- 跳转至精选页面 -->
+                <mychoice></mychoice>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="me">
+                <!-- 跳转至我的页面 -->
+                <mine></mine>
+            </mt-tab-container-item>
+        </mt-tab-container>
+        <mt-tabbar v-model="active" fixed>
+            <!-- 第1个按钮 书架 -->
+            <mt-tab-item id="shelf" @click.native="changeState(0)">
+                <footericon :selectedImage="require('../../public/imgs/index/shelf_isselected.png')" :normalImage="require('../../public/imgs/index/shelf_normal.png')" :focused="state[0].isselect"></footericon>
+                书架
+            </mt-tab-item>
+            <!-- 第2个按钮 书城 -->
+            <mt-tab-item id="bookcity" @click.native="changeState(1)">
+                <footericon :selectedImage="require('../../public/imgs/index/bookcity_isselected.png')" :normalImage="require('../../public/imgs/index/bookcity_normal.png')" :focused="state[1].isselect"></footericon>
+                书城
+            </mt-tab-item>
+            <!-- 第3个按钮 精选 -->
+            <mt-tab-item id="goodsel" @click.native="changeState(2)">
+                <footericon :selectedImage="require('../../public/imgs/index/goodsel_isselected.png')" :normalImage="require('../../public/imgs/index/goodsel_normal.png')" :focused="state[2].isselect"></footericon>
+                精选
+            </mt-tab-item>
+            <!-- 第4个按钮 我的 -->
+            <mt-tab-item id="me" @click.native="changeState(3)">
+                <footericon :selectedImage="require('../../public/imgs/index/me_isselected.png')" :normalImage="require('../../public/imgs/index/me_normal.png')" :focused="state[3].isselect"></footericon>
+                我的
+            </mt-tab-item>
+        </mt-tabbar>
     </div>
-    <!-- 引入全局组件轮播图2 -->
-    <my-carousel></my-carousel>
-    <!-- 精品小说 -->
-    <div>
-      <div class="good-txt">
-        <span>精品小说</span>
-        <span class="more">更多&gt;</span>
-      </div>
-      <parttwo></parttwo>
-    </div>
-    <!-- 经典完结 -->
-    <div>
-      <div class="good-txt">
-        <span>经典完结</span>
-        <span class="more">更多&gt;</span>
-      </div>
-      <bookcomm></bookcomm>
-      <bookcomm></bookcomm>
-    </div>
-    <tworows></tworows>
-    <!-- 大家都在看 -->
-    <div class="allsee">
-      <div class="all">大家都在看</div>
-      <div class="allsee-txt1">
-        <span class="first-tag">完美狂兵</span>
-        <span class="two-tag">逍遥小村医</span>
-      </div>
-      <div class="allsee-txt2">
-        <span class="three-tag">爱你在雷霆之间</span>
-        <span class="four-tag">婚不由己</span>
-      </div>
-      <div class="allsee-txt1">
-        <span class="two-tag">龙族-晨曦</span>
-        <span class="first-tag">婚不由己</span>
-      </div>
-      <div class="allsee-txt">乡村小神仙</div>
-    </div>
-    <!-- 热门小说 -->
-    <div class="hot">
-      <div class="hottext">热门小说</div>
-      <bookcomm></bookcomm>
-    </div>
-    <!-- 引入底部导航栏子组件 -->
-    <myfooter></myfooter>
   </div>
 </template>
 <script>
-// 头部组件
-import Header from "../components/Header.vue"
-// 轮播图组件
-import Carousel from "../components/index/Carousel.vue"
-// 精彩小说内容子组件
-import PartTwo from "../components/choice/PartTwo.vue"
-// 经典完结内容子组件
-import BookComm from "../components/choice/BookComm.vue"
-import TwoRows from "../components/choice/TwoRows.vue"
-// 底部导航子组件
-import Footer from '../components/Footer.vue'
+import FooterIcon from '../components/FooterIcon.vue'
+// 注册书城子组件
+import IndexBody from '../components/index/IndexBody.vue'
+// 注册精选子组件
+import MyChoice from "../views/MyChoice.vue"
+// 注册我的子组件
+import Mine from "../views/mine/Mine.vue"
+// import Footer from '../components/Footer.vue'
+// 主体内容子组件
+// import IndexBody from '../components/index/IndexBody.vue'
 export default {
-  data(){
-    return {
-      
+    data(){
+        return {
+          // 默认首页进入书城子面板
+            active:"bookcity",
+            // 保存底部按钮状态
+            state:[
+                {isselect:false},
+                {isselect:true},
+                {isselect:false},
+                {isselect:false}
+            ],
+        }
+    },
+    components:{
+        "footericon":FooterIcon,
+        "bookcity":IndexBody,
+        "mychoice":MyChoice,
+        "mine":Mine,
+    },
+    methods:{
+        // 改变底部图标状态
+        changeState(index){
+            // 遍历数组state
+            for(var i=0;i<this.state.length;i++){
+                var ui=index;
+                if(ui==i){
+                    this.state[i].isselect=true;
+                }else{
+                    this.state[i].isselect=false;
+                }
+            }
+        }
     }
-  },
- components:{
-   "myheader":Header,
-    "index-carousel":Carousel,
-    "parttwo":PartTwo,
-    "bookcomm":BookComm,
-    "tworows":TwoRows,
-    "myfooter":Footer,
-  }
 }
 </script>
 <style scoped>
@@ -110,101 +101,8 @@ export default {
     background-color: #F1F1F1;
     margin-bottom: 56px;
   }
-/* 5个图标按钮 */
-.index .nav-img{
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  padding: 16px;
-  margin-bottom: 4px;
-}
-.index .nav-img-item{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.nav-img-item img{
-  width:40px;
-  height:40px;
-}
-.nav-img-item .firstImg{
-  display: inline-block;
-  margin-top: -5px;
-}
-/* 图标下面文字水平居中 */
-.nav-img-item p{
-  text-align: center;
-  font-size: 12px;
-}
-/* 精品小说 */
-.index .good-txt{
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 16px;
-  margin-top: 3px;
-}
-/* 更多 字体样式 */
-.index .good-txt .more{
-  font-size: 12px;
-  color: #999;
-}
-/* 经典完结 */
-.index .book-comm{
-  background: #fff;
-  padding: 10px 16px;
-}
-.index .tr-other{
-  border-top: none;
-  margin-top: 3px;
-  background: #fff;
-  padding: 10px 16px;
-  box-sizing: border-box;
-}
-.index .allsee{
-  background: #fff;
-  margin-top: 3px;
-  padding: 10px 16px;
-}
-.index .allsee-txt1,.allsee-txt2{
-  display: flex;
-  margin: 0 auto;
-  width: 50%;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-.index .allsee-txt2{
-  width: 60%;
-}
-.index .all{
-  margin-bottom: 30px;
-}
-/* 完美狂兵样式 */
-.index .first-tag{
-  color: #FF9709;
-}
-/* 逍遥逍遥小村医 */
-.index .two-tag{
-  color: #13CAD6;
-}
-.index .three-tag{
-  color: #519ADE;
-}
-.index .four-tag{
-  color: #FF9709;
-  font-size: 12px;
-}
-.index .allsee-txt{
-  color: #13CAD6;
-  margin: 0 auto;
-  width: 50%;
-  text-align: center
-}
-.index .hot{
-  background: #fff;
-  margin: 3px 0 6px;
-}
-.hot .hottext{
-  padding: 10px 16px;
-}
+  .foot .mint-tabbar > .mint-tab-item.is-selected {
+        background: #fff;
+        color: #13CAD6;
+    }
 </style>

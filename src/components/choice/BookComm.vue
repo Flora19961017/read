@@ -4,7 +4,7 @@
       <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
       <div class="r-detail">
         <div class="d-comm">
-          <p class="d-title">最强兵王</p>
+          <p class="d-title">特种兵</p>
           <p class="d-detail">
               【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！
           </p>
@@ -23,6 +23,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  props:{
+    list:[]
+  }
+}
+</script>
 <style scoped>
 .book-comm .big-item{
   display: flex;

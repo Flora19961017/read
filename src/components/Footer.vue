@@ -3,7 +3,19 @@
         <!-- 点击底部按钮跳转至页面 -->
         <mt-tab-container v-model="active">
             <mt-tab-container-item id="shelf">
-                <!-- 跳转至指定页面 -->
+                <!-- 跳转至书架页面 -->
+            </mt-tab-container-item>
+            <mt-tab-container-item id="bookcity">
+                <!-- 跳转至书城页面 -->
+                <bookcity></bookcity>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="goodsel">
+                <!-- 跳转至精选页面 -->
+                <mychoice></mychoice>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="me">
+                <!-- 跳转至我的页面 -->
+                <mine></mine>
             </mt-tab-container-item>
         </mt-tab-container>
         <mt-tabbar v-model="active" fixed>
@@ -32,6 +44,12 @@
 </template>
 <script>
 import FooterIcon from '../components/FooterIcon.vue'
+// 注册书城子组件
+import IndexBody from './index/IndexBody.vue'
+// 注册精选子组件
+import MyChoice from "../views/MyChoice.vue"
+// 注册我的子组件
+import Mine from "../views/mine/Mine.vue"
 export default {
     data(){
         return {
@@ -46,6 +64,9 @@ export default {
     },
     components:{
         "footericon":FooterIcon,
+        "bookcity":IndexBody,
+        "mychoice":MyChoice,
+        "mine":Mine,
     },
     methods:{
         // 改变底部图标状态
