@@ -69,8 +69,8 @@ export default {
  .head .imgstyle{
     height: 0.95rem;
     position: absolute;
-    top: 2.5%;
-    left: 5%;
+    top: 20.5%;
+    left: 7%;
   }
   .head .mint-navbar .mint-tab-item{
     padding: 12px 0 5px;

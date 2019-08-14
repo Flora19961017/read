@@ -15,6 +15,7 @@ import Welfare from './views/mine/Welfare.vue'
 import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -30,6 +31,7 @@ export default new Router({
     {path:'/Index',component:Index},
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
+
     {
       path: '/MyChoice',
       name: 'mychoice',
