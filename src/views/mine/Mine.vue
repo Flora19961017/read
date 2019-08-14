@@ -301,13 +301,7 @@ export default {
   .btn-wid{
     width:50%;
   }
-  /* 位置微调 */
-  .text-f1-posi{
-    
-  }
-  .text-f2-posi{
-   
-  }
+ 
   /* 设置方向小图标 */
   .qd-dire{
     margin:0;
