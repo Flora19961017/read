@@ -57,7 +57,6 @@ export default {
   top:10px;
   width:18px;
   height:18px;
-  
   background:url(../../public/imgs/mine/search.png) no-repeat;
   background-size:100%;
   opacity: .6;

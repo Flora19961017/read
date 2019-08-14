@@ -14,10 +14,12 @@ import Balance from './views/mine/Balance.vue'
 import Welfare from './views/mine/Welfare.vue'
 import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
+import Login from './views/Login.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Login",component:Login},
     {path:"/Search",component:Search},
     {path:"/Bookrack",component:Bookrack},
     {path:"/Welfare",component:Welfare},
