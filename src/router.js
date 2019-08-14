@@ -12,11 +12,14 @@ import Inform from './views/mine/Inform.vue'
 import Message from './views/mine/Message.vue'
 import Balance from './views/mine/Balance.vue'
 import Welfare from './views/mine/Welfare.vue'
-
+import Bookrack from './views/book/Bookrack.vue'
+import Search from './views/Search.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/Search",component:Search},
+    {path:"/Bookrack",component:Bookrack},
     {path:"/Welfare",component:Welfare},
     {path:"/Inform",component:Inform},
     {path:"/Message",component:Message},
