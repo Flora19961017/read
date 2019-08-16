@@ -10,14 +10,14 @@
       <div class="imgAndText">
         <!-- 图片，头像 -->
         <img src="../../../public/imgs/mine/user.jpg" alt="" class="user">
-        <div class="">
+        <div class="loginOrReg">
           <!-- 上下排列，文字加文字 -->
           <span class="text-f1 text-f1-posi">登录</span>
           <span>/</span>
           <span class="text-f1 text-f1-posi">注册</span>
         </div>
       </div>
-      <div>
+      <div class="btn-posi">
         <!-- 设置签到部分 -->
         <mt-button class="btn-qd">
           <i class="bg-qd"></i>签到<sup><small class="pic-red"></small></sup>
@@ -30,15 +30,20 @@
       <!-- 余额 -->
       <div class="text-flex text-align" @click="yuE">
         <!-- 上下 -->
-        <span class="text-f1 m-bottom">10<i class="text-f1">猫豆</i></span>
+        <span class="text-f1 m-bottom">10<i class="text-f1">0书币</i></span>
         <span class="text-f2 ">余额</span>
       </div>
       <!-- 福利 -->
       <!-- 上下 -->
       <div class="text-flex posi text-align">
         <!-- i给个背景图片 -->
-        <span class="text-f1">0/7<i class="littleImg">领</i></span>
-        <span class="text-f2">福利中心</span>
+        <span class="text-f1">0/8<i class="littleImg">领</i></span>
+        <span class="text-f2">任务</span>
+      </div>
+      <!-- VIP -->
+      <div class="text-flex">
+        <span>图片</span>
+        <span class="text-f2">VIP</span>
       </div>
     </div>
     <!-- 轮播图 -->
@@ -48,34 +53,43 @@
     <div class="bgColor"></div>
     <div class="borderSty">
       <a href="javascript:;" class="d-flex aStyle">
-        <i class="p-middle text-f3"><small class="bgPosi bgImg1"></small>阅读记录</i>
-        <i class="bgPosi iStyle "></i>
+        <i class="p-middle text-f3"><small class="bgPosi bgImg1"></small>邀请好友</i>
+        <div>
+          <small class="small-text">领300书币</small>
+          <i class="bgPosi iStyle "></i>
+        </div>
       </a>
     </div>
     <div class="borderSty">
       <a href="javascript:;" class="d-flex aStyle">
-        <i class="p-middle text-f3"><small class="bgPosi bgImg2"></small>性别</i>
+        <i class="p-middle text-f3"><small class="bgPosi bgImg2"></small>书币充值</i>
+        <div>
+          <small class="small-text">送30天VIP</small>
+          <button class="borderSty-btn">充值</button>
+          <i class="bgPosi iStyle"></i>
+        </div>
+      </a>
+    </div>
+    <div class="borderSty">
+      <a href="javascript:;" class="d-flex aStyle">
+        <i class="p-middle text-f3"><small class="bgPosi bgImg3"></small>VIP专区</i>
+        <div>
+          <small CLASS="small-text">免费看小说</small>
+          <i class="bgPosi iStyle"></i>
+        </div>
+        
+      </a>
+    </div>
+    <div class="borderSty">
+      <a href="javascript:;" class="d-flex aStyle">
+        <i class="p-middle text-f3"><small class="bgPosi bgImg4"></small>阅读记录</i>
         <i class="iStyle"></i>
       </a>
     </div>
     <div class="borderSty">
       <a href="javascript:;" class="d-flex aStyle">
-        <i class="p-middle text-f3"><small class="bgPosi bgImg3"></small>阅读口味</i>
-        <i class="iStyle"></i>
-      </a>
-    </div>
-    <div class="borderSty">
-      <a href="javascript:;" class="d-flex aStyle">
-        <i class="p-middle text-f3"><small class="bgPosi bgImg4"></small>用户反馈</i>
-        <i class="iStyle"></i>
-      </a>
-    </div>
-    <!-- 小间距 -->
-    <div class="bgColor"></div>
-    <div class="borderSty">
-      <a href="javascript:;" class="d-flex aStyle">
-        <i class="p-middle text-f3"><small class="bgPosi bgImg5"></small>场景问题</i>
-        <small class="text-f2 text-m">猫扑免费小说应该怎么玩?</small><i class="iStyle"></i>
+        <i class="p-middle text-f3"><small class="bgPosi bgImg5"></small>帮助与反馈</i>
+        
       </a>
     </div>
     <div>
@@ -132,6 +146,20 @@ export default {
   /* 头像部分，弹性布局 */
   .imgAndText{
     display: flex;
+    margin-top:15px;
+  }
+  /* 头像旁边文字的位置 */
+  .loginOrReg{
+    margin-left:15px;
+  }
+  /* 头像旁边文字 */
+  .text-f1-posi{
+    line-height:50px;
+    letter-spacing: 1px;
+  }
+  /* 签到位置微调 */
+  .btn-posi{
+    margin-top:25px;
   }
   /* 文字上下排列 */
   .text-flex{
@@ -171,7 +199,25 @@ export default {
     background:url(../../../public/imgs/mine/arr-right.png) no-repeat;
     background-size:100%;
     margin:10px;
+    margin-left:0;
     opacity:.4;
+  }
+  /* 小文字 */
+  .small-text{
+    line-height: 45px;
+    font-size:12px;
+    color:#999999;
+  }
+  /* 小按钮样式 */
+  .borderSty-btn{
+    width:59px;
+    height:25px;
+    padding:0;
+    border-radius: 18px;
+    border:1px solid hsl(175, 74%, 42%);
+    background:#fff;
+    color:hsl(175, 74%, 42%);
+    margin-left:6px;
   }
   /* 设置签到部分 */
   /* 设置按钮 */
@@ -184,6 +230,8 @@ export default {
     border:0; 
     position:relative;
     line-height:13px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
   }
   /* 设置图标 */
   .bg-qd{
