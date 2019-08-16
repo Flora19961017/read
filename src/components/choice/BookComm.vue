@@ -1,18 +1,16 @@
 <template>
   <div class="book-comm">
-    <div class="big-item">
-      <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
+    <div class="big-item" v-for="(item,i) of list" :key="i">
+      <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
       <div class="r-detail">
         <div class="d-comm">
-          <p class="d-title">特种兵</p>
-          <p class="d-detail">
-              【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！
-          </p>
+          <p class="d-title">{{item.title}}</p>
+          <p class="d-detail">{{item.intr}}</p>
         </div>
         <div class="d-flag">
           <div class="f-author">
             <img src="../../../public\imgs\choice\author.png" alt="">
-            <span>丛林狼</span>
+            <span>{{item.author}}</span>
           </div>
           <div class="f-btn">
             <span class="isEnd">已完结</span>
@@ -26,13 +24,14 @@
 <script>
 export default {
   props:{
-    list:[]
+    list:{type:Array},
   }
 }
 </script>
 <style scoped>
 .book-comm .big-item{
   display: flex;
+  padding-bottom: 15px;
   width: 100%;
 }
 .book-comm .big-item>img{

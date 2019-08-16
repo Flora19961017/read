@@ -1,19 +1,26 @@
 <template>
   <div class="tr-other">
-    <div class="o-item">
-      <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
-      <p class="o-title">最强兵王</p>
+    <div class="o-item" v-for="(item,i) of list" :key="i">
+      <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
+      <p class="o-title">{{item.title}}</p>
     </div>
-    <div class="o-item">
+    <!-- <div class="o-item">
       <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
       <p class="o-title">武道霸主</p>
     </div>
     <div class="o-item">
       <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
       <p class="o-title">邪神旌旗</p>
-    </div>
+    </div> -->
   </div>
 </template>
+<script>
+export default {
+  props:{
+    list:{type:Array},
+  },
+}
+</script>
 <style scoped>
 .tr-other{
   width: 100%;

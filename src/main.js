@@ -7,11 +7,12 @@ import MintUI from "mint-ui"
 import "mint-ui/lib/style.css"
 Vue.use(MintUI)
 // 引入全局组件轮播图
-import MyCarousel from './components/choice/Carousel'
+// import MyCarousel from './components/choice/Carousel'
 
 // 创建全局组件
-Vue.component("my-carousel",MyCarousel)
+// Vue.component("my-carousel",MyCarousel)
 Vue.config.productionTip = false
+axios.defaults.baseURL="http://127.0.0.1:5050/"
 Vue.prototype.axios=axios
 Vue.use(MintUI)
 new Vue({

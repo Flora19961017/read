@@ -12,79 +12,104 @@
       <mt-tab-container v-model="active">
         <mt-tab-container-item id="boy">
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(0,9)"/>
           <!-- 第二部分 -->
           <h3>特异功能
             <span class="more" @click="goMore">更多&nbsp;<i>&gt;</i></span>
           </h3>
-          <part-two/>
+          <part-two :list="list.slice(0,6)"/>
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(9,18)"/>
           <!-- 第四部分 -->
           <h3>废柴逆袭
             <span class="more">更多&nbsp;<i>&gt;</i></span>
           </h3>
-          <part-four/>
+          <!-- <part-four/> -->
+          <div class="pf-page">
+            <book-comm :list="list.slice(1,2)"/>
+            <two-rows :list="list.slice(6,9)"/>
+          </div>
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(9,18)"/>
           <!-- 第六部分 -->
           <h3>夜场欢场
             <span class="more">更多&nbsp;<i>&gt;</i></span>
           </h3>
           <div class="part-six">
-            <book-comm/>
-            <book-comm/>
+            <book-comm :list="list.slice(0,10)"/>
           </div>
         </mt-tab-container-item>
         <mt-tab-container-item id="girl">
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(3,12)"/>
           <!-- 第二部分 -->
           <h3>报复渣男
             <span class="more">更多&nbsp;<i>&gt;</i></span>
           </h3>
-          <part-two/>
+          <part-two :list="list.slice(6,12)"/>
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(20,29)"/>
           <!-- 第四部分 -->
           <h3>虐恋情深
             <span class="more">更多&nbsp;<i>&gt;</i></span>
           </h3>
-          <part-four/>
+          <!-- <part-four/> -->
+          <div class="pf-page">
+            <book-comm :list="list.slice(1,2)"/>
+            <two-rows :list="list.slice(6,9)"/>
+          </div>
           <!-- 轮播图 -->
-          <my-carousel/>
+          <my-carousel :list="list.slice(0,9)"/>
           <!-- 第六部分 -->
           <h3>鬼夫来袭
             <span class="more">更多&nbsp;<i>&gt;</i></span>
           </h3>
           <div class="part-six">
-            <book-comm/>
-            <book-comm/>
+            <book-comm :list="list.slice(0,12)"/>
           </div>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
+    <!-- <myfooter></myfooter> -->
   </div>
 </template>
 <script>
+// 注册底部导航栏
+// import Footer from "../components/Footer"
+import Carousel from "../components/choice/Carousel"
+import TwoRows from '../components/choice/TwoRows'
 import PartTwo from '../components/choice/PartTwo'
 import PartFour from '../components/choice/ParFour'
 import BookComm from '../components/choice/BookComm'
 export default {
   data(){
     return{
-      active:"boy"
+      active:"boy",
+      list:[],
     }
   },
   components:{
+    // "myfooter":Footer,
+    "my-carousel":Carousel,
+    "two-rows":TwoRows,
     "part-two":PartTwo,
     "part-four":PartFour,
     "book-comm":BookComm
   },
+  created(){
+    this.loadDate();
+  },
   methods:{
     goMore(){
       this.$router.push('/More');
-    }
+    },
+     // 页面加载完成时获取数据
+      loadDate(){
+        var url="index";
+        this.axios.get(url).then(res=>{
+          this.list=res.data.data;
+        });
+      },
   }
 }
 </script>
@@ -147,6 +172,10 @@ h3{margin: 0;padding: 0}
 }
 .choice-page .book-comm+.book-comm{
   margin-top: 1rem;
+}
+.pf-page{
+  padding: 1rem;
+  background: #fff;
 }
 </style>
 

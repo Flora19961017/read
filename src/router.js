@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from "./views/Index.vue"
 import MyChoice from './views/MyChoice.vue'
 import Carousel from "./components/index/Carousel.vue"
-import SignInAndMask from "./views/subpages/SignInAndMask.vue"
+import SignInAndMask from "./views/IndexSubpages/SignInAndMask.vue"
 import More from './views/choice/More'
 import BookDetail from './views/choice/BookDetail'
 import WriteComm from './views/choice/WriteComm'
@@ -12,7 +12,8 @@ import Inform from './views/mine/Inform.vue'
 import Message from './views/mine/Message.vue'
 import Balance from './views/mine/Balance.vue'
 import Welfare from './views/mine/Welfare.vue'
-
+import GoodSelect from "./views/IndexSubpages/GoodSelect.vue"
+import FinishMore from "./views/IndexSubpages/FinishMore.vue"
 
 Vue.use(Router)
 
@@ -26,6 +27,16 @@ export default new Router({
     {path:'/Index',component:Index},
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
+    {
+      path:"/GoodSelect",
+      name:"goodselect",
+      component:GoodSelect
+    },
+    {
+      path:"/FinishMore",
+      name:"finishmore",
+      component:FinishMore
+    },
 
     {
       path: '/MyChoice',

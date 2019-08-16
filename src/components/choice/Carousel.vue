@@ -4,58 +4,30 @@
       <h3 class="c-title">扮猪吃虎</h3>
       <mt-swipe-item>
         <div class="img-box">
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
-            <p class="b-title">最强兵王</p>
-            <p class="b-author">丛林狼</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
-            <p class="b-title">武道霸主</p>
-            <p class="b-author">署狂人</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
-            <p class="b-title">邪神旌旗</p>
-            <p class="b-author">楚白</p>
+          <div class="img-item" v-for="(item,i) of list.slice(0,3)" :key="i">
+            <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
+            <p class="b-title">{{item.title}}</p>
+            <p class="b-author">{{item.author}}</p>
           </div>
         </div>        
       </mt-swipe-item>
+
       <mt-swipe-item>
         <div class="img-box">
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
-            <p class="b-title">最强兵王</p>
-            <p class="b-author">丛林狼</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
-            <p class="b-title">武道霸主</p>
-            <p class="b-author">署狂人</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
-            <p class="b-title">邪神旌旗</p>
-            <p class="b-author">楚白</p>
+          <div class="img-item" v-for="(item,i) of list.slice(3,6)" :key="i">
+            <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
+            <p class="b-title">{{item.title}}</p>
+            <p class="b-author">{{item.title}}</p>
           </div>
         </div>  
       </mt-swipe-item>
+
       <mt-swipe-item>
         <div class="img-box">
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
-            <p class="b-title">最强兵王</p>
-            <p class="b-author">丛林狼</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
-            <p class="b-title">武道霸主</p>
-            <p class="b-author">署狂人</p>
-          </div>
-          <div class="img-item">
-            <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
-            <p class="b-title">邪神旌旗</p>
-            <p class="b-author">楚白</p>
+         <div class="img-item" v-for="(item,i) of list.slice(6,9)" :key="i">
+            <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
+            <p class="b-title">{{item.title}}</p>
+            <p class="b-author">{{item.author}}</p>
           </div>
         </div>  
       </mt-swipe-item>
@@ -64,19 +36,17 @@
 </template>
 <script>
   export default {
-    data() {
+    data(){
       return {
         
-      }
+        }
     },
-    created(){
-      
+    props:{
+      list:{type:Array},
     },
-    methods: {
-      
-      
-    },
-
+    methods:{
+       
+    }
   }
 </script>
 <style scoped>

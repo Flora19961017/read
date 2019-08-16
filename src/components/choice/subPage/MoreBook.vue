@@ -1,13 +1,11 @@
 <template>
   <div class="mb-page">
-    <div class="big-item">
-      <img src="../../../../public/imgs/choice/t5_295037.jpg" alt="">
+    <div class="big-item" v-for="(item,i) of list" :key="i">
+      <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
       <div class="r-detail">
-        <p class="d-title">最强兵王</p>
-        <p class="d-author">丛林狼</p>
-        <p class="d-detail">
-            【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！
-        </p>
+        <p class="d-title">{{item.title}}</p>
+        <p class="d-author">{{item.author}}</p>
+        <p class="d-detail">{{item.intr}}</p>
         <div class="f-btn">
           <span class="isEnd">已完结</span>
           <span class="f-flag">武神</span>
@@ -16,6 +14,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  props:{
+    list:{type:Array},
+  },
+}
+</script>
 <style scoped>
 .mb-page{
   padding: 1rem 0;
@@ -24,6 +29,7 @@
 .mb-page .big-item{
   display: flex;
   width: 100%;
+  padding-bottom: 15px;
 }
 .mb-page .big-item>img{
   width: 27%;

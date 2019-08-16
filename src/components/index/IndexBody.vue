@@ -27,23 +27,22 @@
           </div>
         </div>
         <!-- 引入全局组件轮播图2 -->
-        <my-carousel></my-carousel>
+        <my-carousel :list="list_carousel"></my-carousel>
         <!-- 精品小说 -->
         <div>
           <div class="good-txt">
             <span>精品小说</span>
-            <span class="more">更多&gt;</span>
+            <span class="more" @click="goMore">更多&gt;</span>
           </div>
-          <parttwo></parttwo>
+          <parttwo :list="list_good.slice(0,6)"></parttwo>
         </div>
         <!-- 经典完结 -->
         <div>
           <div class="good-txt">
             <span>经典完结</span>
-            <span class="more">更多&gt;</span>
+            <span class="more" @click="goFinish">更多&gt;</span>
           </div>
-          <bookcomm></bookcomm>
-          <bookcomm></bookcomm> 
+          <bookcomm :list="list_stop.slice(0,2)"></bookcomm>
         </div>
         <tworows></tworows>
         <!-- 大家都在看 -->
@@ -66,11 +65,12 @@
         <!-- 热门小说 -->
         <div class="hot">
           <div class="hottext">热门小说</div>
-          <bookcomm></bookcomm>
+          <bookcomm :list="list_hot"></bookcomm>
         </div>
     </div>
 </template>
 <script>
+import carousel from "../../components/choice/Carousel.vue"
 import Header from "../Header.vue"
 // 轮播图组件
 import Carousel from "./Carousel.vue"
@@ -82,29 +82,59 @@ import TwoRows from "../choice/TwoRows.vue"
 export default {
     data(){
         return {
-          
+          list_carousel:[],//全部数据
+          // 热门小说数据
+          list_hot:[],
+          // 经典完结数据
+          list_stop:[],
+          // 精品小说
+          list_good:[],
         }
     },
     components:{
+        "my-carousel":carousel,
         "myheader":Header,
         "index-carousel":Carousel,
         "parttwo":PartTwo,
         "bookcomm":BookComm,
         "tworows":TwoRows,
     },
-    // created() {
-    //   this.loadDate();
-    //   console.log("组件创建成功")
-    // },
-    // methods: {
-    //   loadDate(){
-    //     var url="index";
-    //     console.log(1)
-    //     this.axios.get(url).then(res=>{
-    //       this.list=res.data.data;
-    //     });
-    //   }
-    // },
+    created() {
+      this.loadDate();
+      console.log("组件创建成功")
+    },
+    methods: {
+      // 页面加载完成时获取数据
+      loadDate(){
+        var url="index";
+        this.axios.get(url).then(res=>{
+          var list=[];
+          list=res.data.data;
+          this.list_carousel=list.slice(0,9);
+          this.list_hot=list.slice(23,31);//热门小说
+          this.list_stop=list.slice(14,22);//经典完结
+          this.list_good=list.slice(6,13);//精品小说
+          console.log(this.list_carousel)
+          
+        });
+      },
+      // 点击精品小说右边更多按钮跳转至精品小说页面
+      goMore(){
+        var listgood=this.list_good;
+        this.$router.push({
+          // path:'/GoodSelect',
+          name:"goodselect",
+          query:{list:listgood}
+        });
+      },
+      goFinish(){//跳转至更多经典完结页面
+        var listfinish=this.list_stop; 
+        this.$router.push({
+          path:'/FinishMore',
+          query:{list:listfinish}
+        });
+      }
+    },
 }
 </script>
 <style scoped>
