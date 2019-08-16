@@ -10,10 +10,11 @@
       <div class="imgAndText">
         <!-- 图片，头像 -->
         <img src="../../../public/imgs/mine/user.jpg" alt="" class="user">
-        <div class="text-flex">
+        <div class="">
           <!-- 上下排列，文字加文字 -->
-          <span class="text-f1 text-f1-posi">书友52435</span>
-          <span class="text-f2 text-f2-posi">ID:5247923</span>
+          <span class="text-f1 text-f1-posi">登录</span>
+          <span>/</span>
+          <span class="text-f1 text-f1-posi">注册</span>
         </div>
       </div>
       <div>
@@ -300,13 +301,7 @@ export default {
   .btn-wid{
     width:50%;
   }
-  /* 位置微调 */
-  .text-f1-posi{
-    margin:5px 0  0 7px;
-  }
-  .text-f2-posi{
-    margin:0 0 5px 7px;
-  }
+ 
   /* 设置方向小图标 */
   .qd-dire{
     margin:0;

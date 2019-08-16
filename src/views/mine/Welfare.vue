@@ -51,7 +51,7 @@
      <div class="task1-Newbie">
        <div class="task1-hobby"> 
          <span class="task1-font">选择阅读口味</span>
-         <i>+10</i>
+         +10<i></i>
        </div>
        <div class="task1-do">
          <div class="posi">
@@ -82,6 +82,93 @@
           </div>
        </div>
      </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
+     </li>
+      <li class="task2-li"> 
+     <div class="task1-Newbie">
+       <div class="task1-hobby"> 
+         <span class="task1-font">累计阅读60分钟</span>
+         <i>+20</i>
+       </div>
+       <div class="task1-do">
+         <div class="posi">
+            <span class="circle-f3 circle-posi1"></span>
+            <span class="f-bg-s3">去完成</span>
+            <span class="circle-f3 circle-posi2"></span>
+          </div>
+       </div>
+     </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
+     </li>
+      <li class="task2-li"> 
+     <div class="task1-Newbie">
+       <div class="task1-hobby"> 
+         <span class="task1-font">累计阅读120分钟</span>
+         <i>+30</i>
+       </div>
+       <div class="task1-do">
+         <div class="posi">
+            <span class="circle-f3 circle-posi1"></span>
+            <span class="f-bg-s3">去完成</span>
+            <span class="circle-f3 circle-posi2"></span>
+          </div>
+       </div>
+     </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
+     </li>
+     <li class="task2-li"> 
+     <div class="task1-Newbie">
+       <div class="task1-hobby"> 
+         <span class="task1-font">累计阅读180分钟</span>
+         <i>+30</i>
+       </div>
+       <div class="task1-do">
+         <div class="posi">
+            <span class="circle-f3 circle-posi1"></span>
+            <span class="f-bg-s3">去完成</span>
+            <span class="circle-f3 circle-posi2"></span>
+          </div>
+       </div>
+     </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
+     </li>
+     <li class="task2-li"> 
+     <div class="task1-Newbie">
+       <div class="task1-hobby"> 
+         <span class="task1-font">浏览广告送猫豆</span>
+         <i>+5</i>
+       </div>
+       <div class="task1-do">
+         <div class="posi">
+            <span class="circle-f3 circle-posi1"></span>
+            <span class="f-bg-s3">去完成</span>
+            <span class="circle-f3 circle-posi2"></span>
+          </div>
+       </div>
+     </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
+     </li>
+     <li class="task2-li"> 
+     <div class="task1-Newbie">
+       <div class="task1-hobby"> 
+         <span class="task1-font">免费领现金</span>
+         +0<i></i>
+       </div>
+       <div class="task1-do">
+         <div class="posi">
+            <span class="circle-f3 circle-posi1"></span>
+            <span class="f-bg-s3">去完成</span>
+            <span class="circle-f3 circle-posi2"></span>
+          </div>
+       </div>
+     </div>
+     <!-- 分割线 -->
+     <div class="cut-off"></div>
      </li>
    </ul>
   </div>
@@ -100,11 +187,6 @@ export default {
 </script>
 <style scoped>
 /* 设置ul去点 */
-ul{
-  list-style-type: none;
-  padding:0;
-  margin:0;
-}
 .posi{
     position:relative;
     text-align:center;
@@ -236,6 +318,7 @@ ul{
 .task1-font{
   font-size:13px;
   letter-spacing: 1px;
+  margin-right:10px;
 }
 /* 设置完成样式 */
 .circle-f3{
@@ -271,5 +354,11 @@ right:25px;
   font-size:14px;
   letter-spacing: 1px;
   
+}
+/* 分割线样式 */
+.cut-off{
+  border-bottom:1px solid #000;
+  opacity:.2;
+  margin:18px 8px;
 }
 </style>

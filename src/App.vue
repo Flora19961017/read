@@ -9,9 +9,12 @@
 html{
   font-size: 15px;
 }
-body,p{
+body,p,ul{
   margin: 0;
   padding: 0;
+}
+ul{
+  list-style-type: none;
 }
 i{
   font-style: normal;
