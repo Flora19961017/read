@@ -59,7 +59,7 @@
             <two-rows :list="list.slice(6,9)"/>
           </div>
           <!-- 轮播图 -->
-          <my-carousel :list="list.slice(0,9)"/>
+          <my-carousel :list="list.slice(23,32)"/>
           <!-- 第六部分 -->
           <h3>鬼夫来袭
             <span class="more">更多&nbsp;<i>&gt;</i></span>
@@ -88,6 +88,9 @@ export default {
       list:[],
     }
   },
+  props:{
+    activeindex:"",
+  },
   components:{
     // "myfooter":Footer,
     "my-carousel":Carousel,
@@ -101,7 +104,16 @@ export default {
   },
   methods:{
     goMore(){
-      this.$router.push('/More');
+       var list=this.list;
+       var active=this.activeindex;
+       console.log(active)
+        this.$router.push({
+          // path:'/GoodSelect',
+          name:"more",
+          query:{list:list,active:active}
+        });
+       
+      // this.$router.push('/More');
     },
      // 页面加载完成时获取数据
       loadDate(){

@@ -26,7 +26,7 @@
             <p>完结</p>
           </div>
         </div>
-        <!-- 引入全局组件轮播图2 -->
+        <!-- 引入子组件轮播图2 -->
         <my-carousel :list="list_carousel"></my-carousel>
         <!-- 精品小说 -->
         <div>
@@ -114,15 +114,12 @@ export default {
           this.list_hot=list.slice(23,31);//热门小说
           this.list_stop=list.slice(14,22);//经典完结
           this.list_good=list.slice(6,13);//精品小说
-          console.log(this.list_carousel)
-          
         });
       },
       // 点击精品小说右边更多按钮跳转至精品小说页面
       goMore(){
         var listgood=this.list_good;
         this.$router.push({
-          // path:'/GoodSelect',
           name:"goodselect",
           query:{list:listgood}
         });

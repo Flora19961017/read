@@ -13,7 +13,7 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="goodsel">
                 <!-- 跳转至精选页面 -->
-                <mychoice></mychoice>
+                <mychoice :activeindex="active" @upt="upt"></mychoice>
             </mt-tab-container-item>
             <mt-tab-container-item id="me">
                 <!-- 跳转至我的页面 -->
@@ -53,6 +53,7 @@ import IndexBody from '../components/index/IndexBody.vue'
 import MyChoice from "../views/MyChoice.vue"
 // 注册我的子组件
 import Mine from "../views/mine/Mine.vue"
+import { truncate } from 'fs';
 // import Footer from '../components/Footer.vue'
 // 主体内容子组件
 // import IndexBody from '../components/index/IndexBody.vue'
@@ -77,6 +78,10 @@ export default {
         "mine":Mine,
     },
     methods:{
+        upt(active){
+            this.active=active;
+            this.state[2].isselect=true;
+        },
         // 改变底部图标状态
         changeState(index){
             // 遍历数组state

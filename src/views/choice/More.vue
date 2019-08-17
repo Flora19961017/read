@@ -4,13 +4,8 @@
       <mt-button icon="back" slot="left" @click="goChoice"></mt-button>
     </mt-header>
     <div class="m-main-part">
-      <more-book/>
-      <more-book/>
-      <more-book/>
-      <more-book/>
-      <more-book/>
-      <more-book/>
-      <more-book/>
+      <more-book :list="list.slice(0,10)"/>
+      
     </div>
   </div>
 </template>
@@ -19,16 +14,25 @@ import MoreBook from '../../components/choice/subPage/MoreBook'
 export default {
   data(){
     return{
-
+      list:[],
+      active:""
     }
   },
   components:{
     "more-book":MoreBook,
   },
+  created(){
+    this.getData();
+  },
   methods:{
     goChoice(){
-      this.$router.push("/MyChoice");
-    }
+      this.$router.push("/Index");
+      this.$emit("upt",this.active);
+    },
+    getData(){
+      this.list=this.$route.query.list;
+      this.active=this.$route.query.active;
+    },
   }
 }
 </script>
