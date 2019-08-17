@@ -98,6 +98,10 @@ export default {
     phoneBlur(){
       // (1)获取显示提示语的元素
       var span = document.getElementsByClassName("tit-cue-text")[0];
+      // (1.1)如果提示语为 手机号已存在，那么直接返回false
+      if(span.innerHTML == "手机号已存在"){
+        return false;
+      }
       // (2)验证是否为空，
       if(!this.phoneNum){
         // (3)如果为空，提示手机号为空，并且return
@@ -120,24 +124,30 @@ export default {
     // 4.密码框失去焦点，进行验证
     pwdBlur(){
       // (1).获取显示提示语的元素
-      var span = document.getElementsByClassName("tit-cue-text")[1];
+      var span1 = document.getElementsByClassName("tit-cue-text")[0];
+      var span2 = document.getElementsByClassName("tit-cue-text")[1];
+      // (1.1)如果，提示语内容为 "手机号已存在"  直接返回false
+      if(span1.innerHTML == "手机号已存在"){
+        console.log(1);
+        return false;
+      }
       // (2).验证密码是否为空
       if(!this.loginPwd){
         // (3)如果为空，提示用户输入密码，提示语改为请输入密码
-        span.style.color = "red";
-        span.innerHTML = "请输入密码";
+        span2.style.color = "red";
+        span2.innerHTML = "请输入密码";
         return false;
       }
       // (4)如果上述通过，调用密码验证函数，
       if(this.password(this.loginPwd)==false){
         // (5)如果格式不正确，提示用户用户名或密码格式不正确
-        span.style.color = "red";
-        span.innerHTML = "密码格式不正确";
+        span2.style.color = "red";
+        span2.innerHTML = "密码格式不正确";
         return false;
       }
       // (6)如果上述全部通过，绿色文字提醒，格式正确
-      span.style.color = "green";
-      span.innerHTML = "密码格式正确";
+      span2.style.color = "green";
+      span2.innerHTML = "密码格式正确";
       return true;
     },
     // 5.点击登录按钮时验证手机号和密码是否为空
@@ -150,8 +160,23 @@ export default {
         // (2)发送ajax请求，登录
         var uname = this.phoneNum;
         var upwd = this.loginPwd;
-        this.axios.get("login",{uname,upwd}).then(res=>{
-          console.log(res.data);
+        this.axios.get("login",{params:{uname,upwd}}).then(res=>{
+          // (3)接收服务器返回过来的数据
+          var data = res.data;
+          // (4)对数据的code进行判断，
+          // (5)如果为1，登录成功，跳转页面重新用户加载数据
+          console.log(data.code);
+          if(data.code==1){
+
+          }else if(data.code==-1){
+            // (6)如果为0，登录失败并且清空密码，提示用户名或密码错误
+            this.$toast("用户名或密码错误");
+            // 清空密码输入框
+            var span = document.getElementsByClassName("tit-cue-text")[1];
+            span.style.color = "red";
+            span.innerHTML = "请输入密码";
+            this.loginPwd = ""; 
+          }          
         })
       }
     },
@@ -159,16 +184,32 @@ export default {
     signIn(){
       // 点击注册按钮时，调用两个验证函数，如果都返回true(手机号和密码都返回true),发送ajax请求，添加数据
       // (1)调用两个验证函数,并用变量接收返回值
-      var pho = this.phoneBlur();
-      var pwd = this.pwdBlur();
-      if(pho&&pwd){
+      // (1.1)判断，如果提示语为 手机号不存在，不调用函数验证
+      var span = document.getElementsByClassName("tit-cue-text")[0];
+      
+      if(this.phoneBlur()&&this.pwdBlur()){
         // (2)验证都通过，发送ajax请求,添加用户数据
         // (3)获取url 和要传递的参数
         var url = "signin";
         var uname = this.phoneNum;
         var upwd = this.loginPwd;
         this.axios.post(url,qs.stringify({uname,upwd})).then(res=>{
-        console.log(res.data);
+        // (3)对返回值进行判断 1 -1 0 
+          // (4)如果为1，则代表成功，重新加载主页面
+          var data = res.data;
+          if(data.code==1){
+            // 跳转页面，重新加载数据
+          }else if(data.code==0){
+            // (5)如果为0 ，代表手机号已经存在，提示用户
+            // 获取span，提示用户手机号已经存在
+            var spans = document.getElementsByClassName("tit-cue-text");
+            this.loginPwd = "";
+            spans[1].style.color = "transparent";
+            spans[0].style.color = "red";
+            spans[0].innerHTML = data.msg;
+          }else if(data.code==-1){
+            // (6)如果为-1，数据插入不成功，提示用户，网络错误
+          }
         })
       }
     }
