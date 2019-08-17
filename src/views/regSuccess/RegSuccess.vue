@@ -23,9 +23,9 @@
     <!-- 分割线 -->
     <div class="spi-line"></div>
     <!-- 使用性别组件 -->
-    <!-- <sex-view></sex-view> -->
+    <div :is="name"></div>
     <!-- 使用类型组件 -->
-    <type-view></type-view>
+    
   </div>
 </template>
 <script>
@@ -35,15 +35,19 @@ import sex from "../../components/choose/ChooseSex"
 // 3.引入选择类型的组件
 import type from "../../components/choose/ChooseType"
 export default {
-  
+  created(){
+    console.log(this.$children)
+  },
   components:{
-    // 注册选择性别组件
+    // // 注册选择性别组件
     "sex-view":sex,
     // 注册选择类型组件
     "type-view":type
   },
   data(){
-    return{}
+    return{
+      name:"sex-view"
+    }
   },
   methods:{
     // (1)添加选择性别的点击事件
@@ -53,7 +57,10 @@ export default {
       div.classList.add("text-active");
       // 1.2移除下一个兄弟元素的 text-active 类名
       div.nextElementSibling.classList.remove("text-active");
-      // 1.3跳转组件
+      // 1.3切换组件
+      if(this.name!="sex-view"){
+        this.name="sex-view";
+      }
     },
     // (2)添加选择类型的点击事件
     choType(e){
@@ -61,7 +68,10 @@ export default {
       var div = e.currentTarget;
       div.classList.add("text-active");
       div.previousElementSibling.classList.remove("text-active");
-      // 2.2跳转到类型组件
+      // 2.2切换到类型组件
+      if(this.name!="type-view"){
+        this.name = "type-view";
+      }
     }
   }
 }

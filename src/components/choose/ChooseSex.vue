@@ -4,13 +4,13 @@
     <!-- 选择性别 -->
     <div class="container">
       <!-- 性别男 -->
-      <div class="con-man" @click="sex1">
-        <i :class="img1Style" @click="toggle"></i>
+      <div class="con-man" @click="sex1" >
+        <i :class="img1Style" @click="toggle1"></i>
         <span :class="btn1Style">男生</span>
       </div>
       <!-- 性别女 -->
       <div class="con-women" @click="sex0">
-        <i :class="img0Style" @click="toggle"></i>
+        <i :class="img0Style" @click="toggle0"></i>
         <span :class="btn0Style">女生</span>
       </div>
     </div>
@@ -18,6 +18,16 @@
 </template>
 <script>
 export default {
+  props:{
+    onMan:{
+      // 定义onMan属性
+      type:Function
+    },
+    onMen:{
+      // 定义onMen属性
+      type:Function
+    }
+  },
   data(){
     return{
       // 1.保存图片和文字样式 男
@@ -65,24 +75,26 @@ export default {
         // 1.6删除另外的 图片样式
         //获取下标
         var index = this.img1Style.lastIndexOf(" ",this.img1Style.lastIndexOf(" ")-1);
+        // 1.7改变图片的样式
         this.img1Style=this.img1Style.slice(0,index);
-        this.btn1Style=this.btn1Style.slice(0,this.btn1Style.lastIndexOf(" "));
-        // 1.61删除另外的 文字样式
-        
-        // 1.7改变当前图片路径
-        // 1.71获取设置图片元素
-        var i = e.currentTarget.firstChild;
-        // 1.72修改图片路径
-        i.style.backgroundImage = "";
+        // 1.8改变按钮的样式
+        this.btn1Style=this.btn1Style.slice(0,this.btn1Style.lastIndexOf(" "));   
       }
       
     },
-    con(){
-
+    // 触发 男 事件
+    toggle1(){
+      // 子组件中触发父组件方法
+      if(this.onMan){
+        this.onMan();
+      }
     },
-    // 添加方法 为父组件
-
-    
+    // 触发 女 事件
+   toggle0(){
+     if(this.onMen){
+       this.onMen();
+     }
+   }
   }
 }
 </script>
@@ -95,13 +107,13 @@ export default {
   /* 选择  男 */
   .con-man{
     display: flex;
-    margin:auto;
+    margin:0 60px 0 76px;
     flex-direction: column;
   }
   /* 选择  女 */
   .con-women{
     display: flex;
-    margin:auto;
+    margin-right:50px;
     flex-direction: column;
   }
   /* 背景图基本样式 */
