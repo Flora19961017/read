@@ -58,6 +58,7 @@
   </div>
 </template>
 <script>
+import qs from 'qs'
 export default {
   data(){
     return{
@@ -147,7 +148,11 @@ export default {
     var pwd = this.pwdBlur();
       if(pho&&pwd){
         // (2)发送ajax请求，登录
-        console.log("发送ajax请求")
+        var uname = this.phoneNum;
+        var upwd = this.loginPwd;
+        this.axios.get("login",{uname,upwd}).then(res=>{
+          console.log(res.data);
+        })
       }
     },
     // 6.注册，用户注册
@@ -158,7 +163,13 @@ export default {
       var pwd = this.pwdBlur();
       if(pho&&pwd){
         // (2)验证都通过，发送ajax请求,添加用户数据
-        console.log("发送ajax请求")
+        // (3)获取url 和要传递的参数
+        var url = "signin";
+        var uname = this.phoneNum;
+        var upwd = this.loginPwd;
+        this.axios.post(url,qs.stringify({uname,upwd})).then(res=>{
+        console.log(res.data);
+        })
       }
     }
   },
