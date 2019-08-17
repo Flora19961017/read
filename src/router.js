@@ -17,11 +17,13 @@ import FinishMore from "./views/IndexSubpages/FinishMore.vue"
 import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
+import RegSuccess from './views/regSuccess/RegSuccess.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/RegSuccess",component:RegSuccess},
     {path:"/Login",component:Login},
     {path:"/Search",component:Search},
     {path:"/Bookrack",component:Bookrack},
