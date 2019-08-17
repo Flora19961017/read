@@ -14,6 +14,8 @@ Vue.use(MintUI)
 // Vue.component("my-carousel",MyCarousel)
 Vue.config.productionTip = false
 axios.defaults.baseURL="http://127.0.0.1:5050/"
+// 配置axios 保存session信息
+axios.defaults.withCredentials=true;
 Vue.prototype.axios=axios
 Vue.use(MintUI)
 new Vue({

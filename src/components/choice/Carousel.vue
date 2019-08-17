@@ -1,7 +1,7 @@
 <template>
   <div class="c-carousel">
     <mt-swipe :auto="0">
-      <h3 class="c-title">扮猪吃虎</h3>
+      <h3 class="c-title">一周热门</h3>
       <mt-swipe-item>
         <div class="img-box">
           <div class="img-item" v-for="(item,i) of list.slice(0,3)" :key="i">
