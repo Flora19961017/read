@@ -13,7 +13,7 @@
         <span class="tit-cue-text">?</span>
       </div>
       <div class="tit-cue-input">
-        <input type="text" placeholder="请输入密码" class="login-input" v-model="loginPwd" @blur="pwdBlur" @keyup="pwdBlur">
+        <input type="password" placeholder="请输入密码" class="login-input" v-model="loginPwd" @blur="pwdBlur" @keyup="pwdBlur">
         <span class="tit-cue-text">?</span>
       </div>
       

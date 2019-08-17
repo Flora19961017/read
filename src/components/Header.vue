@@ -2,7 +2,7 @@
     <div class="head">
         <div class="title-border">
             <div class="title" fixed>
-                <input type="text" name="" id="" class="search">
+                <input type="text" name="" id="" class="search" @click="goSearch">
                 <img src="../assets/index_search.jpg" alt="" class="imgstyle">
                 <mt-navbar v-model="selected">
                     <mt-tab-item id="recommend">推荐</mt-tab-item>
@@ -35,6 +35,11 @@ export default {
             selected:"recommend",
         }
     },
+    methods:{
+        goSearch(){
+            this.$router.push("/Search")
+        }
+    }
 }
 </script>
 <style scoped>

@@ -26,8 +26,9 @@ export default {
   },
   methods:{
     goChoice(){
-      this.$router.push("/Index");
-      this.$emit("upt",this.active);
+      //window.history.go(-1);
+       this.$router.push("/Index");
+      // this.$emit("upt",this.active);
     },
     getData(){
       this.list=this.$route.query.list;
