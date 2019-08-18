@@ -33,7 +33,13 @@ export default new Router({
     {path:"/Message",component:Message},
     {path:"/Balance",component:Balance},
     {path:"/Mine",component:Mine},
-    {path:'/Index',component:Index},
+    {
+      path:'/Index',component:Index,
+      children: [
+        { path: 'MyChoice', component: MyChoice },
+        
+      ]
+    },
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
     {

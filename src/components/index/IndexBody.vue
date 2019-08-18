@@ -101,7 +101,6 @@ export default {
     },
     created() {
       this.loadDate();
-      console.log("组件创建成功")
     },
     methods: {
       // 页面加载完成时获取数据

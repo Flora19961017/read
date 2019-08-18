@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div  @click="typem">
     <!-- 两张可选择的图片 -->
     <div class="container">
-      <sex-view ref="alert" :on-man="toggle1" :on-men="toggle0"></sex-view>
+      <sex-view :on-man="toggle1" :on-men="toggle0"></sex-view>
     </div>
     <!-- 小说类型选择框 男 -->
     <div class="box-container">
@@ -22,7 +22,7 @@
           <li>悬疑</li>
           <li>同人</li>
         </ul>
-        <span class="big-btn">开始体验</span>
+        <span class="big-btn" @click="start">开始体验</span>
       </div>
     </div>
     <!-- 小说类型选择框 女 -->
@@ -38,7 +38,7 @@
           <li>灵异</li>
           <li>悬疑</li>
         </ul>
-        <span class="big-btn">开始体验</span>
+        <span class="big-btn" @click="start">开始体验</span>
       </div>
     </div>
   </div>
@@ -47,14 +47,51 @@
 // 引入组件
 import sex from "./ChooseSex"
 export default {
+  data(){
+    return{
+      // 保存li数量的
+      liNum:0,
+      // 保存按钮的选中状态
+      isDis:"",
+    }
+  },
   // 注册组件
   components:{
     "sex-view":sex
   },
- 
   methods:{
+    // 开始体验 按钮
+    start(){
+      console.log(1);
+    },
+    // 清除页面所有li的选中
+    clearLi(){
+      // 1.1对所有li进行遍历，有选中的，变成未选中
+      // 1.2获取页面中的li
+      var lis = document.querySelectorAll(".box-container li");
+        // 1.3循环遍历，有选中，都取消
+        for (var li of lis){
+          if(li.classList.contains("li-checked")){
+            // 1.4取消选中
+            li.classList.remove("li-checked");
+          }
+        }
+    },
+    // 取消按钮的选中
+    clearBtn(){
+      // 1.获取元素
+      var btns = document.getElementsByClassName("big-btn");
+      // 2.如果选中，取消选中
+      for(var btn of btns){
+        if(btn.classList.contains("btn-checked")){
+          // 3.取消选中
+          btn.classList.remove("btn-checked");
+        }
+      }
+    },
     // 男 方法
     toggle1(){
+      console.log(this.liNum);
       // 1.找到男 div，
       var divs = document.getElementsByClassName("box-container");
       var list = divs[0].classList;
@@ -66,10 +103,17 @@ export default {
         list.toggle("d-none",!bool);
         // 5.给另一个添加(隐藏)
         divs[1].classList.toggle("d-none",bool);
+        // 6.移除当前所有选中
+        this.liNum=0;  
+        // 7调用函数，清除所有li的选中
+        this.clearLi();
+        // 8.调用函数，取消按钮选中
+        this.clearBtn();
       }
-     console.log(bool)
     },
    toggle0(){
+    // 0.切换面板时，清除当前面板所有选中
+    console.log(this.liNum);
     // 1.获取div元素
     var divs = document.getElementsByClassName("box-container");
     // 2.获取女 div.classList
@@ -82,9 +126,48 @@ export default {
       list.toggle("d-none",!bool);
       // 5.另一个使用判断结果值 (强制添加)
       divs[0].classList.toggle("d-none",bool);
+      // 6调用函数，清除所有li的选中
+      this.clearLi();
+      // 6.调用函数，取消按钮选中
+      this.clearBtn();
     }
-   }
-  }
+   },
+  // li绑定点击事件
+  // 男 点击事件
+  typem(e){
+    // 0如果目标元素为li，触发该事件
+    if(e.target.tagName=="LI"){
+    // 1.点击添加选择状态样式
+    var list = e.target.classList;
+    var btns = document.getElementsByClassName("big-btn");
+    
+    // 1.1如果不存在，添加
+    var bool = list.contains("li-checked");
+    console.log(bool);
+    if(!bool){
+      list.toggle("li-checked",!bool);
+      
+      this.liNum++;
+    }else{
+      // 2.否则，再次点击取消
+      list.toggle("li-checked",!bool);
+      this.liNum--;
+    }
+    // 3.如果有一个li选中，为btn添加选中状态
+    for(var btn of btns){
+      if(this.liNum>0){
+      btn.classList.toggle("btn-checked",this.liNum);
+      // 4.并且按钮可以点击触发事件
+      btn.style.pointerEvents = "auto";
+    }else{
+      btn.classList.toggle("btn-checked",this.liNum);
+      // 5.否则并且按钮不能触发事件
+      btn.style.pointerEvents = "none";
+    }
+  } 
+}
+}
+}
 }
 </script>
 <style scoped>
@@ -111,6 +194,7 @@ export default {
   .container>>>.con-women{
     margin-right:118px
   }
+   
   /* 添加样式控制元素的显示隐藏 */
   .d-none{
     display:none;
@@ -134,8 +218,6 @@ export default {
     position: absolute;
     border:8px solid transparent;
     border-bottom:9px solid rgba(0,0,0,.18);
-    
-   
   }
   .triangle2{
     display: inline-block;
@@ -175,8 +257,9 @@ export default {
   .box-ul{
     margin:0  30px;
   }
+   /* 为li添加选中样式 */
   /* 设置li */
-  .box-ul>li{
+   li{
     float:left;
     margin:7px 7px;
     background:#dedede;
@@ -186,6 +269,7 @@ export default {
     border-radius:50px;
     font-size:12px;
   }
+  
   /* 清除浮动带来的影响 */
   .box-ul::after{
     display: block;
@@ -203,5 +287,13 @@ export default {
     color:#fff;
     margin:14px 0 25px 0;
   }
-
+  /* li选中时 */
+ .li-checked{
+   background:#ff6c12;
+   color:#fff;
+ }
+ /* li选中时，btn的样式 */
+.btn-checked{
+   background:#0bb7b6;
+ }
 </style>
