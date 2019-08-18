@@ -2,7 +2,7 @@
   <div>
     <!-- 关闭窗口小叉号 -->
     <div>
-      <span class="btn-close">&times;</span>
+      <span class="btn-close" @click="back">&times;</span>
     </div>
     <!-- 注册 -->
     <div class="login-path">
@@ -167,7 +167,8 @@ export default {
           // (5)如果为1，登录成功，跳转页面重新用户加载数据
           console.log(data.code);
           if(data.code==1){
-
+            // (5.1)登录成功，跳转到
+            this.$router.push("/Index");
           }else if(data.code==-1){
             // (6)如果为0，登录失败并且清空密码，提示用户名或密码错误
             this.$toast("用户名或密码错误");
@@ -212,8 +213,14 @@ export default {
           }
         })
       }
+    },
+     // 7.叉号按钮，返回上一级
+  back(){
+    // 7.1返回个人信息按钮
+    this.$router.push("/Mine");
     }
-  },
+  }
+ 
 }
 </script>
 <style scoped>
