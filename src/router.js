@@ -18,6 +18,7 @@ import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import RegSuccess from './views/regSuccess/RegSuccess.vue'
+import BookContent from './views/book/BookContent'
 
 Vue.use(Router)
 
@@ -71,6 +72,11 @@ export default new Router({
       path:'/WriteComm',
       name:'writecomm',
       component:WriteComm
+    },
+    {
+      path:'/BookContent',
+      name:'bookContent',
+      component:BookContent
     }
     // {
     //   path: '/about',

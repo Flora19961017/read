@@ -2,10 +2,10 @@
   <div>
     <!-- 两张可选择的图片 -->
     <div class="container">
-      <sex-view></sex-view>
+      <sex-view ref="alert" :on-man="toggle1" :on-men="toggle0"></sex-view>
     </div>
     <!-- 小说类型选择框 男 -->
-    <div class="box-container d-none">
+    <div class="box-container">
       <div class="box-option">
         <i class="triangle1 man-posi1"></i>
         <i class="triangle2 man-posi2"></i>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <!-- 小说类型选择框 女 -->
-    <div class="box-container">
+    <div class="box-container d-none">
       <div class="box-option">
         <i class="triangle1 women-posi1"></i>
         <i class="triangle2 women-posi2"></i>
@@ -50,6 +50,40 @@ export default {
   // 注册组件
   components:{
     "sex-view":sex
+  },
+ 
+  methods:{
+    // 男 方法
+    toggle1(){
+      // 1.找到男 div，
+      var divs = document.getElementsByClassName("box-container");
+      var list = divs[0].classList;
+      // 2.div中有没有指定类名
+      var bool = list.contains("d-none");
+      // 3.如果有，则移除
+      if(bool){
+        // 4.为自己移除，(显示)
+        list.toggle("d-none",!bool);
+        // 5.给另一个添加(隐藏)
+        divs[1].classList.toggle("d-none",bool);
+      }
+     console.log(bool)
+    },
+   toggle0(){
+    // 1.获取div元素
+    var divs = document.getElementsByClassName("box-container");
+    // 2.获取女 div.classList
+    var list = divs[1].classList;
+    // 3.判断是否存在 d-none 属性
+    var bool = list.contains("d-none");
+    // 4.使用开关属性，女 对判断结果取反 (强制移除)
+    // 4.1如果存在，则移除当前  添加另外的
+    if(bool){
+      list.toggle("d-none",!bool);
+      // 5.另一个使用判断结果值 (强制添加)
+      divs[0].classList.toggle("d-none",bool);
+    }
+   }
   }
 }
 </script>
@@ -70,7 +104,8 @@ export default {
   }
   /* 调整子组件中图片的距离 */
   .container>>>.con-man{
-    margin-left:118px
+    margin-left:118px;
+    margin-right:20px;
   }
   /* 调整子组件中图片的距离 */
   .container>>>.con-women{
