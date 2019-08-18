@@ -27,7 +27,7 @@ export default {
   methods:{
     goChoice(){
       //window.history.go(-1);
-       this.$router.push("/Index");
+       this.$router.push("/MyChoice");
       // this.$emit("upt",this.active);
     },
     getData(){

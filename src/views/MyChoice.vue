@@ -70,12 +70,12 @@
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
-    <!-- <myfooter></myfooter> -->
+    <myfooter></myfooter>
   </div>
 </template>
 <script>
 // 注册底部导航栏
-// import Footer from "../components/Footer"
+ import Footer from "../components/Footer"
 import Carousel from "../components/choice/Carousel"
 import TwoRows from '../components/choice/TwoRows'
 import PartTwo from '../components/choice/PartTwo'
@@ -92,7 +92,7 @@ export default {
     activeindex:"",
   },
   components:{
-    // "myfooter":Footer,
+    "myfooter":Footer,
     "my-carousel":Carousel,
     "two-rows":TwoRows,
     "part-two":PartTwo,
@@ -106,7 +106,6 @@ export default {
     goMore(){
        var list=this.list;
        var active=this.activeindex;
-       console.log(active)
         this.$router.push({
           // path:'/GoodSelect',
           name:"more",
