@@ -98,16 +98,19 @@
         <i class="iStyle"></i>
       </a>
     </div>
+    <myfooter></myfooter>
   </div>
 </template>
 <script>
-// 
-
+import Footer2 from "../../components/Footer2.vue"
 export default {
   data(){
     return{}
   },
   // 注册
+  components:{
+    "myfooter":Footer2
+  },
   methods:{
     // 1.跳转页面到消息
     news(){

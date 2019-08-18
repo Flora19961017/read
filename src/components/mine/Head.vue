@@ -9,7 +9,7 @@
 export default {
   methods:{
     backMine(){
-      this.$router.push("/Index");
+      this.$router.push("/Mine");
     }
   }
 }

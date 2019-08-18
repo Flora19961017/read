@@ -18,6 +18,7 @@ import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import RegSuccess from './views/regSuccess/RegSuccess.vue'
+import BookContent from './views/book/BookContent'
 
 Vue.use(Router)
 
@@ -32,7 +33,13 @@ export default new Router({
     {path:"/Message",component:Message},
     {path:"/Balance",component:Balance},
     {path:"/Mine",component:Mine},
-    {path:'/Index',component:Index},
+    {
+      path:'/Index',component:Index,
+      children: [
+        { path: 'MyChoice', component: MyChoice },
+        
+      ]
+    },
     {path:'/Carousel2',component:Carousel},
     {path:"/SignInAndMask",component:SignInAndMask},
     {
@@ -65,6 +72,11 @@ export default new Router({
       path:'/WriteComm',
       name:'writecomm',
       component:WriteComm
+    },
+    {
+      path:'/BookContent',
+      name:'bookContent',
+      component:BookContent
     }
     // {
     //   path: '/about',

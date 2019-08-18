@@ -13,7 +13,7 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="goodsel">
                 <!-- 跳转至精选页面 -->
-                <mychoice :activeindex="active" @upt="upt"></mychoice>
+                <mychoice></mychoice>
             </mt-tab-container-item>
             <mt-tab-container-item id="me">
                 <!-- 跳转至我的页面 -->
@@ -41,6 +41,7 @@
                 <footericon :selectedImage="require('../../public/imgs/index/me_isselected.png')" :normalImage="require('../../public/imgs/index/me_normal.png')" :focused="state[3].isselect"></footericon>
                 我的
             </mt-tab-item>
+            <router-view></router-view>
         </mt-tabbar>
     </div>
   </div>
@@ -78,10 +79,6 @@ export default {
         "mine":Mine,
     },
     methods:{
-        upt(active){
-            this.active=active;
-            this.state[2].isselect=true;
-        },
         // 改变底部图标状态
         changeState(index){
             // 遍历数组state
@@ -91,6 +88,19 @@ export default {
                     this.state[i].isselect=true;
                 }else{
                     this.state[i].isselect=false;
+                }
+                if(ui==0){
+                    this.$router.push("/Shelf");
+                    this.active="shelf"
+                }else if(ui==1){
+                    this.$router.push("/Index");
+                    this.active="bookcity"
+                }else if(ui==2){
+                    this.$router.push("/MyChoice");
+                    this.active="goodsel";
+                }else{
+                    this.$router.push("/Mine");
+                    this.active="me"
                 }
             }
         }
