@@ -1,17 +1,17 @@
 <template>
   <div class="book-detl">
-    <mt-header fixed title="最强兵王">
-      <mt-button icon="back" slot="left" ></mt-button>
+    <mt-header fixed :title="`${list.title}`">
+      <mt-button icon="back" slot="left" @click="goBack"></mt-button>
       <mt-button icon="more" slot="right" ></mt-button>
     </mt-header>
     <!-- 最上方描述 -->
     <div class="summarize">
       <div class="s-img">
-        <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
+        <img :src="`http://127.0.0.1:5050/imgs/${list.pic}`" alt="">
       </div>
       <div class="s-right">
-        <p class="s-title">最强兵王</p>
-        <p><span class="s-author">丛林王</span>&nbsp;|&nbsp;<span class="s-end">完结</span></p>
+        <p class="s-title">{{list.title}}</p>
+        <p><span class="s-author">{{list.author}}</span>&nbsp;|&nbsp;<span class="s-end">完结</span></p>
         <div class="s-hot">
           <div>
             <p>369<span>万字</span></p>
@@ -30,7 +30,7 @@
     </div>
     <!-- 简介 -->
     <div class="b-details">
-      <p class="bd-detl">【特种兵第一神书】最强兵王，虎视群雄，为国而战，为民出鞘，只有站死，绝不跪生，无怨无悔！<br/>这是一本男人的书！<br/>这是一部热血的故事！</p>
+      <p class="bd-detl">{{list.intr}}</p>
       <div class="bd-flag">
         <div class="f-btns">
           <span>奇遇</span>
@@ -70,13 +70,35 @@ import TwoRows from '../../components/choice/TwoRows'
 export default {
   data(){
     return{
-
+      list:[],
+      bid:"",
+      title:""
     }
+  },
+  created() {
+    this.details();
   },
   components:{
     "comment":Comm,
     "two-rows":TwoRows
-  }
+  },
+  methods:{
+    // 返回上一级页面
+    goBack(){
+      window.history.go(-1);
+    },
+    details(){
+      // this.bid=this.$route.query.bookid;
+      // console.log(this.bid);
+      // var url="bookdetail"
+      // var obj={bookid:this.bid}
+      // this.axios.get(url,{params:{obj}}).then(res=>{
+      //   this.list=res.data.data;
+      // })
+      this.list=this.$route.query.book;
+      // console.log(this.list)
+    }
+  },
 }
 </script>
 <style scoped>

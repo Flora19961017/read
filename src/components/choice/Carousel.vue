@@ -4,7 +4,7 @@
       <h3 class="c-title">一周热门</h3>
       <mt-swipe-item>
         <div class="img-box">
-          <div class="img-item" v-for="(item,i) of list.slice(0,3)" :key="i">
+          <div class="img-item" v-for="(item,i) of list.slice(0,3)" :key="i" @click="goDetail(item)">
             <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
             <p class="b-title">{{item.title}}</p>
             <p class="b-author">{{item.author}}</p>
@@ -14,7 +14,7 @@
 
       <mt-swipe-item>
         <div class="img-box">
-          <div class="img-item" v-for="(item,i) of list.slice(3,6)" :key="i">
+          <div class="img-item" v-for="(item,i) of list.slice(3,6)" :key="i" @click="goDetail(item)">
             <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
             <p class="b-title">{{item.title}}</p>
             <p class="b-author">{{item.title}}</p>
@@ -24,7 +24,7 @@
 
       <mt-swipe-item>
         <div class="img-box">
-         <div class="img-item" v-for="(item,i) of list.slice(6,9)" :key="i">
+         <div class="img-item" v-for="(item,i) of list.slice(6,9)" :key="i" @click="goDetail(item)">
             <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
             <p class="b-title">{{item.title}}</p>
             <p class="b-author">{{item.author}}</p>
@@ -44,9 +44,17 @@
     props:{
       list:{type:Array},
     },
-    methods:{
-       
-    }
+    methods: {
+      goDetail(item){
+        this.$router.push(
+          {
+            path:"/BookDetail",
+            query:{book:item}
+          }
+        );
+      // console.log(item)
+      }
+  },
   }
 </script>
 <style scoped>

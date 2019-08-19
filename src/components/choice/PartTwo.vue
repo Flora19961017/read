@@ -1,43 +1,34 @@
 <template>
   <div class="pw-page">
     <div class="pw-b-list">
-      <div class="b-item" v-for="(item,i) of list" :key="i">
+      <div class="b-item" v-for="(item,i) of list" :key="i"  @click="goDetail(item)">
         <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
         <p class="b-title">{{item.title}}</p>
         <p class="b-author">{{item.author}}</p>
       </div>
-      <!-- <div class="b-item">
-        <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
-        <p class="b-title">武道霸主</p>
-        <p class="b-author">署狂人</p>
-      </div>
-      <div class="b-item">
-        <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
-        <p class="b-title">邪神旌旗</p>
-        <p class="b-author">楚白</p>
-      </div>
-      <div class="b-item">
-        <img src="../../../public/imgs/choice/t5_295037.jpg" alt="">
-        <p class="b-title">最强兵王</p>
-        <p class="b-author">丛林狼</p>
-      </div>
-      <div class="b-item">
-        <img src="../../../public/imgs/choice/t5_421661.jpg" alt="">
-        <p class="b-title">武道霸主</p>
-        <p class="b-author">署狂人</p>
-      </div>
-      <div class="b-item">
-        <img src="../../../public/imgs/choice/t5_11315975.jpg" alt="">
-        <p class="b-title">邪神旌旗</p>
-        <p class="b-author">楚白</p>
-      </div> -->
     </div>
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      
+    }
+  },
   props:{
     list:{type:Array}
+  },
+  methods:{
+    goDetail(item){
+      this.$router.push(
+        {
+          path:"/BookDetail",
+          query:{book:item}
+        }
+      );
+      // console.log(item)
+    }
   },
 }
 </script>
