@@ -2,7 +2,7 @@
   <div>
     <!-- 右浮的跳过按钮 -->
     <div class="clearfix">
-      <span class="float-right">跳过</span>
+      <span class="float-right" @click="skip">跳过</span>
     </div>
     <!-- 中间的文字提示 -->
     <div class="d-flex-col">
@@ -34,9 +34,6 @@ import sex from "../../components/choose/ChooseSex"
 // 3.引入选择类型的组件
 import type from "../../components/choose/ChooseType"
 export default {
-  created(){
-    console.log(this.$refs)
-  },
   components:{
     // // 注册选择性别组件
     "sex-view":sex,
@@ -80,6 +77,10 @@ export default {
         this.name = "type-view";
       }
     },
+    // (3)跳过当前页面，到index
+    skip(){
+      this.$router.push("/Index");
+    }
     
   }
 }
