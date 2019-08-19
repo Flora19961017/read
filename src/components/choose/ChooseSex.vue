@@ -4,13 +4,13 @@
     <!-- 选择性别 -->
     <div class="container">
       <!-- 性别男 -->
-      <div class="con-man" @click="sex1" >
-        <i :class="img1Style" @click="toggle1"></i>
+      <div class="con-man" @click="sex1">
+        <i :class="img1Style"></i>
         <span :class="btn1Style">男生</span>
       </div>
       <!-- 性别女 -->
       <div class="con-women" @click="sex0">
-        <i :class="img0Style" @click="toggle0"></i>
+        <i :class="img0Style"></i>
         <span :class="btn0Style">女生</span>
       </div>
     </div>
@@ -25,6 +25,14 @@ export default {
     },
     onMen:{
       // 定义onMen属性
+      type:Function
+    },
+    onDown:{
+      // 定义onDown属性
+      type:Function
+    },
+    onUp:{
+      // 定义onUp属性
       type:Function
     }
   },
@@ -41,6 +49,13 @@ export default {
   methods:{
     // 点击事件1，点击判断是否含有该样式，有则return，没有则添加，并删除另一个元素的class
     sex1(){
+      // 0.1子组件中触发父组件方法
+      // 0.2触发男事件
+      if(this.onMan){
+        this.onMan();
+      }
+      // 触发父组件事件
+      this.$emit("on-down");
       // 1.1判断，字符串中是否含有指定字符串
       var num = this.img1Style.lastIndexOf("img1-active");
       // 1.2如果返回值>-1 ，直接return
@@ -59,7 +74,13 @@ export default {
         
       } 
     },
-    sex0(e){
+    sex0(){
+      // 0.1触发女事件
+       if(this.onMen){
+       this.onMen();
+     }
+      // 0.2触发父组件事件
+      this.$emit("on-up");
       // 点击事件2，点击判断是否含有该样式，有则return，没有则添加，并删除另一个元素的class
       // 1.1接收字符串的返回值
       var num = this.img0Style.lastIndexOf("img0-active");
@@ -79,22 +100,9 @@ export default {
         this.img1Style=this.img1Style.slice(0,index);
         // 1.8改变按钮的样式
         this.btn1Style=this.btn1Style.slice(0,this.btn1Style.lastIndexOf(" "));   
-      }
-      
+      } 
     },
-    // 触发 男 事件
-    toggle1(){
-      // 子组件中触发父组件方法
-      if(this.onMan){
-        this.onMan();
-      }
-    },
-    // 触发 女 事件
-   toggle0(){
-     if(this.onMen){
-       this.onMen();
-     }
-   }
+    
   }
 }
 </script>

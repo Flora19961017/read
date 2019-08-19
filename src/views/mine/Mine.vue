@@ -10,7 +10,7 @@
       <div class="imgAndText">
         <!-- 图片，头像 -->
         <img src="../../../public/imgs/mine/user.jpg" alt="" class="user">
-        <div class="loginOrReg">
+        <div class="loginOrReg" @click="logOrReg">
           <!-- 上下排列，文字加文字 -->
           <span class="text-f1 text-f1-posi">登录</span>
           <span>/</span>
@@ -112,13 +112,20 @@ export default {
     "myfooter":Footer2
   },
   methods:{
+    // 1.跳转页面到消息
     news(){
       // 跳转页面
       this.$router.push("/Inform")
     },
+    // 2.跳转页面到余额
     // 跳转到余额
     yuE(){
       this.$router.push("/Balance");
+    },
+    // 3.跳转页面到注册或登录
+    logOrReg(){
+      // 点击条
+      this.$router.push("/Login");
     }
   }
 }

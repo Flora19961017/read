@@ -17,7 +17,6 @@
         </div>
         <p class="font-hint">猫豆可兑换无广告阅读哟</p>
       </div>
-      
     </div>
     <!-- 下面部分，背景为灰色 -->
      <div class="bg-color">

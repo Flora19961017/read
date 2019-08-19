@@ -23,9 +23,8 @@
     <!-- 分割线 -->
     <div class="spi-line"></div>
     <!-- 使用性别组件 -->
-    <div :is="name"></div>
+    <component :is="name" @on-down="choType" @on-up="choType" ref="mytoggle"></component>
     <!-- 使用类型组件 -->
-    
   </div>
 </template>
 <script>
@@ -36,7 +35,7 @@ import sex from "../../components/choose/ChooseSex"
 import type from "../../components/choose/ChooseType"
 export default {
   created(){
-    console.log(this.$children)
+    console.log(this.$refs)
   },
   components:{
     // // 注册选择性别组件
@@ -64,15 +63,24 @@ export default {
     },
     // (2)添加选择类型的点击事件
     choType(e){
+       // 0.1判断，如果是子组件触发
+       var bool = e;
+      if(!e){
+        // 0.2收动查找当前div元素
+        var div = document.getElementsByClassName("chose-type")[0];
+        // 0.3否则，当前组件触发，直接找绑定事件元素
+      }else{
+        var div = e.currentTarget;
+      }
       // 2.1添加active类名,并且取消兄弟元素的类名
-      var div = e.currentTarget;
       div.classList.add("text-active");
       div.previousElementSibling.classList.remove("text-active");
       // 2.2切换到类型组件
       if(this.name!="type-view"){
         this.name = "type-view";
       }
-    }
+    },
+    
   }
 }
 </script>
