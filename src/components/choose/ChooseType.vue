@@ -128,7 +128,7 @@ export default {
       divs[0].classList.toggle("d-none",bool);
       // 6调用函数，清除所有li的选中
       this.clearLi();
-      // 6.调用函数，取消按钮选中
+      // 7.调用函数，取消按钮选中
       this.clearBtn();
     }
    },
