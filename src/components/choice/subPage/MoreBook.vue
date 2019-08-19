@@ -1,6 +1,6 @@
 <template>
   <div class="mb-page">
-    <div class="big-item" v-for="(item,i) of list" :key="i">
+    <div class="big-item" v-for="(item,i) of list" :key="i" @click="goDetail(item)">
       <img :src="`http://127.0.0.1:5050/imgs/${item.pic}`" alt="">
       <div class="r-detail">
         <p class="d-title">{{item.title}}</p>
@@ -18,6 +18,17 @@
 export default {
   props:{
     list:{type:Array},
+  },
+  methods: {
+    goDetail(item){
+      this.$router.push(
+        {
+          path:"/BookDetail",
+          query:{book:item}
+        }
+      );
+      // console.log(item)
+    }
   },
 }
 </script>
