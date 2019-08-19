@@ -16,7 +16,6 @@
         <input type="password" placeholder="请输入密码" class="login-input" v-model="loginPwd" @blur="pwdBlur" @keyup="pwdBlur">
         <span class="tit-cue-text">?</span>
       </div>
-      
     </div>
     <!-- 做一个登录按钮，超大的 -->
     <div class="div-btn">
@@ -64,6 +63,12 @@ export default {
     return{
       phoneNum:"",
       loginPwd:"",
+    }
+    
+  },
+  props:{
+    ons:{
+      type:Function
     }
   },
   methods:{
@@ -165,10 +170,14 @@ export default {
           var data = res.data;
           // (4)对数据的code进行判断，
           // (5)如果为1，登录成功，跳转页面重新用户加载数据
-          console.log(data.code);
           if(data.code==1){
             // (5.1)登录成功，跳转到
-            this.$router.push("/Index");
+            console.log(data);
+            this.$router.push("/Mine");
+            this.$emit("ons",data);
+            
+            
+            // this.$router.push("/Index");
           }else if(data.code==-1){
             // (6)如果为0，登录失败并且清空密码，提示用户名或密码错误
             this.$toast("用户名或密码错误");
@@ -200,6 +209,8 @@ export default {
           var data = res.data;
           if(data.code==1){
             // 跳转页面，重新加载数据
+            // (4.1)跳转到选中性别和类型页面
+            this.$router.push("/RegSuccess");
           }else if(data.code==0){
             // (5)如果为0 ，代表手机号已经存在，提示用户
             // 获取span，提示用户手机号已经存在

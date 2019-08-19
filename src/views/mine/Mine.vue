@@ -30,7 +30,7 @@
       <!-- 余额 -->
       <div class="text-flex text-align" @click="yuE">
         <!-- 上下 -->
-        <span class="text-f1 m-bottom">10<i class="text-f1">0书币</i></span>
+        <span class="text-f1 m-bottom"><i class="text-f1">0书币</i></span>
         <span class="text-f2 ">余额</span>
       </div>
       <!-- 福利 -->
@@ -98,20 +98,29 @@
         <i class="iStyle"></i>
       </a>
     </div>
-    <myfooter></myfooter>
+    <myfooter></myfooter> 
+    <reg v-on:ons="con"></reg>
   </div>
 </template>
 <script>
+// 1.引入底部组件
 import Footer2 from "../../components/Footer2.vue"
+// 2.引入登录页面组件
+import Reg from "../Login"
 export default {
   data(){
     return{}
   },
   // 注册
   components:{
-    "myfooter":Footer2
+    "myfooter":Footer2,
+    "reg":Reg
   },
   methods:{
+    // 测试
+    con(data){
+      console.log(data.result[0]);
+    },
     // 1.跳转页面到消息
     news(){
       // 跳转页面
