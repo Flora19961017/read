@@ -8,12 +8,12 @@ export default[
     {cid:1,cname:"第一章：钦差大臣"},
     {cid:2,cname:"第二章：末代皇孙"},
     {cid:3,cname:"第三章：零号"},
-    {cid:4,cname:"第四章：誓言"},
-    {cid:5,cname:"第五章：燃烧的圣诞夜"},
-    {cid:6,cname:"第六章：王的裁决"},
-    {cid:7,cname:"第七章：新约"},
-    {cid:8,cname:"第八章：世纪婚礼"},
-    {cid:9,cname:"第九章：无解之结"}
+    // {cid:4,cname:"第四章：誓言"},
+    // {cid:5,cname:"第五章：燃烧的圣诞夜"},
+    // {cid:6,cname:"第六章：王的裁决"},
+    // {cid:7,cname:"第七章：新约"},
+    // {cid:8,cname:"第八章：世纪婚礼"},
+    // {cid:9,cname:"第九章：无解之结"}
   ]
   }
 ]

@@ -18,7 +18,8 @@ import Bookrack from './views/book/Bookrack.vue'
 import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import RegSuccess from './views/regSuccess/RegSuccess.vue'
-import BookContent from './views/book/BookContent'
+import BookContent from './views/book/BookContent'//看书页
+import Booklist from './views/book/Booklist'//图书目录页
 
 Vue.use(Router)
 
@@ -77,7 +78,12 @@ export default new Router({
       path:'/BookContent',
       name:'bookContent',
       component:BookContent
-    }
+    },
+    {
+      path:'/Booklist',
+      name:'booklist',
+      component:Booklist
+    },
     // {
     //   path: '/about',
     //   name: 'about',
