@@ -20,20 +20,37 @@ import Login from './views/Login.vue'
 import RegSuccess from './views/regSuccess/RegSuccess.vue'
 import BookContent from './views/book/BookContent'//看书页
 import Booklist from './views/book/Booklist'//图书目录页
+import EditData from './components/mine/EditData.vue'  //编辑个人资料
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {path:"/RegSuccess",component:RegSuccess},
-    {path:"/Login",component:Login},
+    {
+      path:"/EditData",
+      component:EditData
+    },
+    {
+      path:"/RegSuccess",
+      component:RegSuccess
+
+    },
+    {
+      path:"/Login",
+      component:Login,
+      name:"login"
+    },
     {path:"/Search",component:Search},
     {path:"/Bookrack",component:Bookrack},
     {path:"/Welfare",component:Welfare},
     {path:"/Inform",component:Inform},
     {path:"/Message",component:Message},
     {path:"/Balance",component:Balance},
-    {path:"/Mine",component:Mine},
+    {
+      path:"/Mine",
+      component:Mine,
+      name:"mine"
+    },
     {
       path:'/Index',component:Index,
       children: [

@@ -5,21 +5,24 @@
       <!-- 此按钮跳转到小写列表 -->
       <a href="javascript:;" @click="news" ><span class="bg-ld"></span></a>
     </div>
+    
     <!-- 包裹图片，加文字 -->
     <div class="d-flex margin-b">
       <div class="imgAndText">
         <!-- 图片，头像 -->
-        <img src="../../../public/imgs/mine/user.jpg" alt="" class="user">
-        <div class="loginOrReg" @click="logOrReg">
+        <img src="../../../public/imgs/mine/user.jpg" alt="" class="user" @click="img" v-if="!list">
+        <img src="../../../public/imgs/mine/official.png" v-else class="u-img"> 
+        <div class="loginOrReg" @click="logOrReg" v-if="!list">
           <!-- 上下排列，文字加文字 -->
           <span class="text-f1 text-f1-posi">登录</span>
           <span>/</span>
           <span class="text-f1 text-f1-posi">注册</span>
         </div>
+        <div v-else class="user-name" @click="editData">{{list.user_name}}</div>
       </div>
       <div class="btn-posi">
         <!-- 设置签到部分 -->
-        <mt-button class="btn-qd">
+        <mt-button class="btn-qd" @click="welfare">
           <i class="bg-qd"></i>签到<sup><small class="pic-red"></small></sup>
           <b class="qd-dire bgPosi"></b>
         </mt-button>
@@ -35,7 +38,7 @@
       </div>
       <!-- 福利 -->
       <!-- 上下 -->
-      <div class="text-flex posi text-align">
+      <div class="text-flex posi text-align" @click="welfare">
         <!-- i给个背景图片 -->
         <span class="text-f1">0/8<i class="littleImg">领</i></span>
         <span class="text-f2">任务</span>
@@ -50,6 +53,11 @@
     <!-- <div></div> -->
     <!-- 按钮，小图标+文字+小图标 -->
     <!-- 给一个div，背景为银色 -->
+
+
+    <div>{{this.list}}</div>
+
+
     <div class="bgColor"></div>
     <div class="borderSty">
       <a href="javascript:;" class="d-flex aStyle">
@@ -98,8 +106,9 @@
         <i class="iStyle"></i>
       </a>
     </div>
+    
     <myfooter></myfooter> 
-    <reg v-on:ons="con"></reg>
+    
   </div>
 </template>
 <script>
@@ -107,9 +116,13 @@
 import Footer2 from "../../components/Footer2.vue"
 // 2.引入登录页面组件
 import Reg from "../Login"
+
 export default {
   data(){
-    return{}
+    return{
+      // 保存动态数据
+      list:"",
+    }
   },
   // 注册
   components:{
@@ -117,14 +130,14 @@ export default {
     "reg":Reg
   },
   methods:{
-    // 测试
-    con(data){
-      console.log(data.result[0]);
+    img(){
+      console.log(this.$route.query.data.result[0]);
     },
     // 1.跳转页面到消息
     news(){
       // 跳转页面
-      this.$router.push("/Inform")
+      this.$router.push("/Inform");
+      console.log(this.list);
     },
     // 2.跳转页面到余额
     // 跳转到余额
@@ -135,7 +148,27 @@ export default {
     logOrReg(){
       // 点击条
       this.$router.push("/Login");
+    },
+    // 4.跳转到签到页面
+    welfare(){
+      this.$router.push("/Welfare");
+    },
+    // 5.跳转到编辑资料页面
+    editData(){
+      this.$router.push("/EditData");
     }
+  },
+   mounted(){
+    // 判断是否接收到了服务器返回值
+    // var res = this.$route.params.data.result[0];
+    // console.log(this.$route.params.data.result[0]);
+    if(this.$route.params.data){
+      // console.log(this.$route);
+      // console.log(this.$route.params.data.result[0]);
+      this.list = this.$route.params.data.result[0];
+     
+    }
+    
   }
 }
 </script>
@@ -244,8 +277,8 @@ export default {
     width:70px;
     height:20px;
     font-size:10px;
-    color:#ffff02;
-    background-color:orange;
+    color:#ebaf67;
+    background-color:#fff0e1;
     border:0; 
     position:relative;
     line-height:13px;
@@ -376,6 +409,7 @@ export default {
     background-size:100%;
     position: absolute;
     right:4px
+    
   }
   .text-align{
     text-align:center;
@@ -383,6 +417,16 @@ export default {
   .text-m{
     line-height:45px;
     margin-left:53px;
+  }
+  /* 用户名的字体 */
+  .user-name{
+    line-height: 50px;
+    margin-left:10px;
+    letter-spacing: 1px;
+  }
+  /* 用户的头像 */
+  .u-img{
+    width:50px;
   }
 </style>
 
