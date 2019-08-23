@@ -19,11 +19,13 @@ import Search from './views/Search.vue'
 import Login from './views/Login.vue'
 import RegSuccess from './views/regSuccess/RegSuccess.vue'
 import BookContent from './views/book/BookContent'
+import SearchHot from "./components/search/SearchHot"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {path:"/SearchHot",component:SearchHot},
     {path:"/RegSuccess",component:RegSuccess},
     {path:"/Login",component:Login},
     {path:"/Search",component:Search},

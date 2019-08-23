@@ -53,12 +53,12 @@ import Mine from "../views/mine/Mine.vue"
 export default {
     data(){
         return {
-            active:"me",
+            active:"shelf",
             state:[
+                {isselect:true},
                 {isselect:false},
                 {isselect:false},
-                {isselect:false},
-                {isselect:true}
+                {isselect:false}
             ],
         }
     },
