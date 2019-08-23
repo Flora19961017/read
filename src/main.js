@@ -21,5 +21,9 @@ Vue.use(MintUI)
 new Vue({
   router,
   store,
+  // 注册公共实例
+  data:{
+    eventHub:new Vue()
+  },
   render: h => h(App)
 }).$mount('#app')

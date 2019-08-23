@@ -219,9 +219,9 @@ export default {
 .hot-door{
   padding:10px 15px;
 }
-.hot-door-ul{
+/* .hot-door-ul{
   
-}
+} */
 .hot-door-ul:after{
   display:block;
   content:"";

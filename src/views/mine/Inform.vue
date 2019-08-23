@@ -128,6 +128,13 @@ export default {
     justify-content: space-around;
     border-bottom:1px solid #cccccc;
   }
+  /* 位置微调 */
+  .flex-column:first-child{
+    margin-left:50px;
+  }
+  .flex-column+a{
+    margin-right:41px;
+  }
   /* 纵向排列 */
   .flex-column{
     display:flex;
@@ -138,18 +145,17 @@ export default {
     display:inline-block;
     width:30px;
     height:3px;
-    background:red;
+    background:#4cd8e1;
     margin-top:4px;
   }
   /* 当访问时的颜色 */
   .active{
-    color:red;
+    color:#4cd8e1;
   }
   /* 显示为block，并加弹性 */
   .d-block{
     display:flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
   }
   /* 设置弹性，文字 */
   .d-text{
@@ -157,10 +163,11 @@ export default {
     justify-content: space-between;
     border-bottom:1px solid #cccccc;
     position:relative;
+    margin-left:14px;
   }
   /* 设置字体样式 */
   .text-f1{
-    font-size:15px;
+    font-size:13px;
     margin-top:4px;
   }
   .text-f2{
@@ -168,6 +175,7 @@ export default {
     text-align:left;
     margin-top:4px;
     font-style:normal;
+    color:#8e8e8e;
   }
   .text-f3{
     font-size:8px;

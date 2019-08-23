@@ -62,6 +62,17 @@
       <span class="more">更多&nbsp;<i>&gt;</i></span>
     </h3>
     <two-rows/>
+    <div class="btn-btm">
+      <span class="addBook">
+        <img src="../../assets/imgs/detail/addbook.png" alt="">
+      </span>
+      <span class="readBook">
+        <img src="../../assets/imgs/detail/readbook.png" alt="">
+      </span>
+      <span class="download">
+        <img src="../../assets/imgs/detail/download.png" alt="">
+      </span>
+    </div>
   </div>
 </template>
 <script>
@@ -119,6 +130,7 @@ export default {
   background-color: rgba(0,0,0,.5);
   color: #fff;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 .book-detl .s-img{
   width: 27%;
@@ -264,6 +276,25 @@ export default {
   box-sizing: border-box;
   background: #fff;
   padding: 1rem;
+}
+.book-detl .btn-btm{
+  border-top: 1px solid #ddd;
+  width: 100%;
+  padding:0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.book-detl span{
+  width: 33.33%;
+  padding: .5rem 0;
+}
+.book-detl .btn-btm img{
+  width: 3.5rem;
+  vertical-align: middle;
 }
 </style>
 

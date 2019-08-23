@@ -57,14 +57,15 @@
   </div>
 </template>
 <script>
+// 1.引入qs模块
 import qs from 'qs'
+
 export default {
   data(){
     return{
       phoneNum:"",
       loginPwd:"",
     }
-    
   },
   props:{
     ons:{
@@ -170,14 +171,16 @@ export default {
           var data = res.data;
           // (4)对数据的code进行判断，
           // (5)如果为1，登录成功，跳转页面重新用户加载数据
-          if(data.code==1){
-            // (5.1)登录成功，跳转到
-            console.log(data);
-            this.$router.push("/Mine");
-            this.$emit("ons",data);
+          if(data.code==1){      
+            // (5.1)获取的数据传到Mine
             
-            
-            // this.$router.push("/Index");
+            this.$root.eventHub.$emit("result",data);
+            // (5.2) 页面跳转到 Index页面
+            this.$router.push({
+              name:"mine",
+              params:{data}
+            });
+            this.$store.commit("data",data);
           }else if(data.code==-1){
             // (6)如果为0，登录失败并且清空密码，提示用户名或密码错误
             this.$toast("用户名或密码错误");
