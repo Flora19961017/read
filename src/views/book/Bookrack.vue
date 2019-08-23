@@ -60,11 +60,15 @@
         </li>
       </ul>
     </div>
+    <myfooter></myfooter>
   </div>
 </template>
 <script>
+import FooterShelf from "../../components/FooterShelf"
 export default {
-  
+  components:{
+    "myfooter":FooterShelf,
+  }
 }
 </script>
 <style scoped>

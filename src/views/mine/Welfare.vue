@@ -12,7 +12,7 @@
       <div class="signIn">
      <div class="signIn-circle3">
        <div class="signIn-circle2">
-         <div class="signIn-circle1">已签到</div>
+         <div class="signIn-circle1">签到</div>
        </div>
      </div>
    </div>
@@ -55,9 +55,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -76,9 +76,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -93,9 +93,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -110,9 +110,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -127,9 +127,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -144,9 +144,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -161,9 +161,9 @@
        </div>
        <div class="task1-do">
          <div class="posi">
-            <span class="circle-f3 circle-posi1"></span>
+            
             <span class="f-bg-s3">去完成</span>
-            <span class="circle-f3 circle-posi2"></span>
+            
           </div>
        </div>
      </div>
@@ -243,13 +243,14 @@ export default {
    height:68px;
    border-radius: 50%;
    color:#fff;
-   background:red;
+   background:#19cedc;
    line-height:68px;
    font-size:16px;
    left:6px;
    top:6px;
    z-index: 0;
    letter-spacing: 1px;
+   
  }
  /* 设置第二层 */
  .signIn-circle2{
@@ -257,20 +258,62 @@ export default {
   width:80px;
   height:80px;
   border-radius: 50%;
-  background:rgba(255,0,0,.4);
+  background:#cdf7fc;
   top:9px;
   left:9px;
-  z-index: 1
+  z-index: 1;
+  animation: circle2 900ms linear infinite;
  }
+ /* 第三层动画 */
+ @keyframes circle3{
+   from{background:rgba(25,206,220,.2);}
+   to{background:rgba(25,206,220,0);}
+ }
+  /* 第二层设置动画 */
+ @keyframes circle2{
+   from{
+     width:80px;
+     height:80px;
+     background:rgba(25,206,220,.5);
+   }
+   
+   20%{
+     width:81px;
+     height:81px;
+     background:rgba(25,206,220,.4);
+   }
+   40%{
+     width:82px;
+     height:82px;
+     background:rgba(25,206,220,.3);
+   }
+   60%{
+     width:83px;
+     height:83px;
+     background:rgba(25,206,220,.2);
+   }
+   80%{
+     width:84px;
+     height:84px;
+     background:rgba(25,206,220,.1);
+   }
+   to{
+     width:85px;
+     height:85px;
+     background:rgba(25,206,220,0);
+   }
+ }
+
  .signIn-circle3{
   position: absolute;
   left:36%;
   width:98px;
   height:98px;
   border-radius: 50%;
-  background:rgba(255,0,0,.2);
+  
   z-index: 3;
   margin-bottom:15px;
+  
  }
  
  /* 设置签到天数 */
@@ -340,19 +383,19 @@ right:25px;
 /* 设置背景以及字体 */
 .f-bg-s3{
   display: inline-block;
-  width:45px;
-  height:20px;
-  border:1px solid red;
+  width:63px;
+  height:25px;
   border-left:0;
   border-right:0;
-  background:#fff;
-  color:red;
+  background:#1bd0d8;
+  color:#fff;
   position: absolute;
   left:-82px;
   z-index: 1;
-  line-height:20px;
-  font-size:14px;
+  line-height:25px;
+  font-size:12px;
   letter-spacing: 1px;
+  border-radius:18px;
   
 }
 /* 分割线样式 */

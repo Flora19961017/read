@@ -80,7 +80,7 @@ export default {
                     this.state[i].isselect=false;
                 }
                 if(ui==0){
-                    this.$router.push("/Shelf");
+                    this.$router.push("/Bookrack");
                     this.active="shelf"
                 }else if(ui==1){
                     this.$router.push("/Index");

@@ -5,90 +5,171 @@
       <head-view></head-view>
       <span class="posi-text">我的余额</span>
    </div>
-    <div class="float-left margin"><i class="bg-littleImg bg-img-data"></i>查看明细</div>
-    <div class="clear"></div>
-    <div class="text-align d-clear">
-      <div>
-        <span class="font-size"><i class="bg-littleImg bg-img-ingot"></i>70</span>
-        <div>
-          <span class="line-x"></span>
-          <b class="font-yue">账号余额</b>
-          <span class="line-x"></span>
+   <!-- 大背景 -->
+    <div id="big-bg" class="posi">
+      <!-- 绝对定位部分 -->
+      <div class="big-text">
+        <i class="big-text1">账户余额</i>
+        <span class="big-text2"><i class="big-text3" v-text="list.money"></i>书币</span>
+        <span class="big-text4">
+          <i class="posi-icon icon-i1"></i>
+          哪些书币会到期
+          <i class="posi-icon icon-i2"></i>
+        </span>
+      </div>
+      <!-- 绝对定位右边部分 -->
+      <div class="big-bg-right">
+        <div class="bg-right">
+          <i class="posi-icon icon-i3"></i>
+          <small class="bg-right-text">去充值</small>
+          <i class="posi-icon icon-i4"></i>
         </div>
-        <p class="font-hint">猫豆可兑换无广告阅读哟</p>
       </div>
     </div>
-    <!-- 下面部分，背景为灰色 -->
-     <div class="bg-color">
-      <div class="board">
-       免广告兑换
+    <!-- 分割线 -->
+    <div class="cut-off"></div>
+    <!-- 主要内容部分 -->
+    <div id="main">
+      <!-- 标题可点击部分 -->
+      <div class="main-tit d-flex">
+        <div class="main-tit1 d-flex active" @click="tit1">
+          <span>收入</span>
+        </div>
+        <div class="d-flex main-tit2" @click="tit2">
+          <span>消费</span>
+        </div>
       </div>
-      <!-- 给一个ul ul背景为#,三个li 里的div背景为#fff -->
-      <ul class="ulStyle">
-        <li>
-          <div class="li-div">
-            <span class="bg-littleImg bg-img-stock"></span>
-            <div class="d-flex">
-              <span class="f-s1">免1小时广告券</span>
-              <i class="f-s2">近30天已兑换1209件</i>
-            </div>
-            <div class="d-flex-s3">
-              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>298猫豆</span>
-              <div class="posi m-top">
-                <span class="circle-f3 circle-posi1"></span>
-                <span class="f-bg-s3">去兑换</span>
-                <span class="circle-f3 circle-posi2"></span>
+      <!-- 面板1 收入 -->
+      <div class="income">
+        <ul>
+          <li>
+            <div class="income-con">
+              <!-- 左 -->
+              <div class="income-left">
+                <b>倒计时翻牌</b>
+                <i>有效期:2019.08.22-2019.08.29</i>
               </div>
-              
+              <!-- 右 -->
+              <span class="income-right">+2书币</span>
             </div>
-          </div>
-        </li>
-        <li></li>
-        <div class="li-div">
-            <span class="bg-littleImg bg-img-stock"></span>
-            <div class="d-flex">
-              <span class="f-s1">免3小时广告券</span>
-              <i class="f-s2">近30天已兑换525件</i>
-            </div>
-            <div class="d-flex-s3">
-              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>698猫豆</span>
-              <div class="posi">
-                <span class="circle-f3 circle-posi1"></span>
-                <span class="f-bg-s3">去兑换</span>
-                <span class="circle-f3 circle-posi2"></span>
+          </li>
+          <li>
+            <div class="income-con">
+              <!-- 左 -->
+              <div class="income-left">
+                <b>签到奖励书币</b>
+                <i>有效期:2019.08.22-2019.08.29</i>
               </div>
-              
+              <!-- 右 -->
+              <span class="income-right">+5书币</span>
             </div>
-          </div>
-        <li></li>
-        <div class="li-div">
-            <span class="bg-littleImg bg-img-stock"></span>
-            <div class="d-flex">
-              <span class="f-s1">免24小时广告券</span>
-              <i class="f-s2">近30天已兑换118件</i>
-            </div>
-            <div class="d-flex-s3">
-              <span class="f-s3"><i class="bg-littleImg bg-img-ingot-sml"></i>1388猫豆</span>
-              <div class="posi">
-                <span class="circle-f3 circle-posi1"></span>
-                <span class="f-bg-s3">去兑换</span>
-                <span class="circle-f3 circle-posi2"></span>
+          </li>
+          <li>
+            <div class="income-con">
+              <!-- 左 -->
+              <div class="income-left">
+                <b>签到奖励书币</b>
+                <i>有效期:2019.08.22-2019.08.29</i>
               </div>
-              
+              <!-- 右 -->
+              <span class="income-right">+5书币</span>
             </div>
-          </div>
-      </ul>
+          </li>
+          <li>
+            <div class="income-con">
+              <!-- 左 -->
+              <div class="income-left">
+                <b>倒计时翻牌</b>
+                <i>有效期:2019.08.22-2019.08.29</i>
+              </div>
+              <!-- 右 -->
+              <span class="income-right">+3书币</span>
+            </div>
+          </li>
+          <li>
+            <div class="income-con">
+              <!-- 左 -->
+              <div class="income-left">
+                <b>新人专享-注册</b>
+                <i>有效期:2019.08.22-2019.08.29</i>
+              </div>
+              <!-- 右 -->
+              <span class="income-right">+300书币</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- 面板2 消费 -->
+      <div class="consume d-none">
+        <div>
+          <i class="posi-icon icon-i5"></i>
+          <span>暂无消费记录</span>
+        </div>
+      </div>
     </div>
   </div>
-  
+
 </template>
 <script>
 import Header from "../../components/mine/Head.vue"
 export default {
+  data(){
+    return{
+      // 1.保存服务器返回过来数据
+      list:{money:0}
+    }
+  },
   components:{
     "head-view":Header,
   },
-  methods:{}
+  mounted(){
+    // 1.如果vuex中不是初始化数据
+    if(this.$store.getters.result!=0){
+      // 2.将值给list
+      this.list = this.$store.getters.result.result[0];
+    }
+  },
+  methods:{
+    // 1.点击切换面板
+    tit1(e){
+      // 1.1获取绑定事件元素
+      var div1 = e.currentTarget;
+      var div2 =  div1.nextElementSibling;
+      var div3 = document.getElementsByClassName("income")[0];
+      var div4 = document.getElementsByClassName("consume")[0];
+      console.log(div3);
+      // 1.2判断是否含有 active 类，用变量接收bool值
+      var bool = div1.classList.contains("active");
+      // 1.3进行判断,如果没有 
+      if(!bool){
+        // 1.4为自己添加该类名,并为其绑定的组件移除类名
+        div1.classList.toggle("active",!bool);
+        div3.classList.toggle("d-none",bool);
+        // 1.5为其下一个兄弟元素移除该类名,并为另一个元素添加类名
+        div2.classList.toggle("active",bool);
+        div4.classList.toggle("d-none",!bool);
+        
+      }
+    },
+    tit2(e){
+      // 1.1获取绑定事件元素
+      var div2 = e.currentTarget;
+      var div1 =  div2.previousElementSibling;
+      var div3 = document.getElementsByClassName("income")[0];
+      var div4 = document.getElementsByClassName("consume")[0];
+      // 1.2判断是否含有 active 类，用变量接收bool值
+      var bool = div2.classList.contains("active");
+      // 1.3进行判断,如果没有 
+      if(!bool){
+        // 1.4为自己添加该类名,并且为其绑定元素移除类名
+        div2.classList.toggle("active",!bool);
+        div4.classList.toggle("d-none",bool);
+        // 1.5为其下一个兄弟元素移除该类名,并且为另一个元素添加类名
+        div1.classList.toggle("active",bool);
+        div3.classList.toggle("d-none",!bool);
+      }
+    }
+  }
 
 }
 </script>
@@ -105,161 +186,192 @@ export default {
    margin-top:7px;
    font-size:14px;
  }
- /* 给背景图片设置基本样式*/
- .bg-littleImg{
-   display: inline-block;
-   width: 17px;
-   height:17px;
-   background:url(../../../public/imgs/mine/arr-left.png) no-repeat;
-  }
- /* 设置清除浮动 */
- .clear{
-   clear:both;
- }
- .text-align{
-   text-align: center;
- }
- .float-left{
-   float:right;
- }
- .margin{
-  margin-top:10px;
-  margin-right:12px;
-}
-.bg-img-data{
-  width: 14px;
-  height:14px;
-  background:url(../../../public/imgs/mine/data.png) no-repeat;
-  background-size:100%;
-  margin-right:5px;
-  vertical-align: middle;
-  opacity: .7;
-}
-/* 设置元宝 */
-.bg-img-ingot{
-  width:45px;
-  height:45px;
-  background:url(../../../public/imgs/mine/ingot.png) no-repeat;
-  background-size:100%;
-  vertical-align: middle;
-}
-.font-size{
-  font-size:33px;
-}
-/* 小横线 */
-.line-x{
-  display: inline-block;
-  width:30px;
-  height:1px;
-  background-color:rgba(0,0,0,.3);
-  margin-bottom:5px;
-}
-/* 字体样式 */
-.font-yue{
-  font-weight:normal;
-  font-size:13px;
-  margin:10px;
-  letter-spacing: 2px;
-  opacity: .7;
-}
-.font-hint{
-  color:#f00;
-  margin:13px 0;
-  font-size:14px;
-  letter-spacing:1px;
-}
-/* 设置下面部分 */
-.bg-color{
-  background-color:#dedede;
-}
-/* 公告 */
-.board{
-  margin-left:10px;
-  padding:15px 0;
-  font-size:15px;
-}
-/* 设置ul样式 */
-.ulStyle{
-  margin:0;
-  padding:0px 15px;
-  list-style: none;
-}
-/* 设置li及li里面样式 */
-.li-div{
-  background:#fff;
-  display:flex;
-  margin-bottom:15px;
-}
-.bg-img-stock{
-  width:64px;
-  height:40px;
-  background:url(../../../public/imgs/mine/stock.png) no-repeat;
-  background-size:100%;
-  vertical-align: middle;
-  margin:25px 5px;
-}
+/* 设置弹性 */
 .d-flex{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around; 
 }
-/* 设置字体 */
-.f-s1{
-  font-size:15px;
-  margin-top:16px;
-}
-.f-s2{
-  font-size:12px;
-  color:orange;
-  margin-bottom:25px;
-}
-.bg-img-ingot-sml{
-  width:20px;
-  height:20px;
-  background:url(../../../public/imgs/mine/ingot.png)no-repeat;
-  background-size:100%;
+
+/* 背景图基础样式 */
+.posi-icon{
+  display: inline-block;
+  width:15px;
+  height:15px;
   vertical-align: middle;
 }
-/* 设置字体 */
-.f-s3{
-  font-size:12px;
-  color:#f00;
+
+/* 设置大背景部分 */
+#big-bg{
+  height:130px;
+  background:linear-gradient(#31a7eb, #24d0e8);
+  margin:12px 14px;
+  border-radius: 10px;
 }
-.d-flex-s3{
+/* 左边文字部分 */
+.big-text{
+  position: absolute;
   display: flex;
   flex-direction: column;
-  margin:15px 0 0 15px;
-  text-align: center;
-}
-/* 设置背景以及字体 */
-.f-bg-s3{
-  display: inline-block;
-  width:67px;
-  height:23px;
-  background-color:#f00;
   color:#fff;
-  position: absolute;
-  left:6px;
-  z-index: 1;
-  line-height:23px;
-  font-size:13px;
-  letter-spacing: 1px;
-}
-.circle-f3{
-  display: inline-block;
-  position: absolute;
-  width:25px;
-  height:23px;
-  background-color:#f00;
-  border-radius:50%;
+  top:20px;
+  left:15px;
   
 }
-.circle-posi1{
-right:43px;
+/* 文字样式微调 */
+.big-text1{
+  font-size:12px;
+  color:#bbebf2;
 }
-.circle-posi2{
-right:-17px;
+.big-text2{
+  font-size:13px;
+  color:#bbebf2;
 }
-/* 设置上外边距 */
-
+.big-text3{
+  font-size:35px;
+  font-weight: 700;
+  color:#fff;
+}
+.big-text4{
+  color:#bbebf2;
+  margin-top:10px;
+  font-size:12px;
+}
+/* 背景图片 */
+.icon-i1{
+  background:url(../../../public/imgs/mine/quesion.png) no-repeat;
+  background-size:100%;
+}
+.icon-i2{
+  background:url(../../../public/imgs/mine/anrik.png) no-repeat;
+  background-size:100%;
+}
+.icon-i3{
+  background:url(../../../public/imgs/mine/money.png) no-repeat;
+  background-size:100%;
+  position: absolute;
+  top:7px;
+  left:6px;
+}
+.icon-i4{
+  background:url(../../../public/imgs/mine/arr-right.png) no-repeat;
+  background-size:100%;
+  
+}
+/* 右边样式 定位 */
+.big-bg-right{
+  position: absolute;
+  left:212px;
+  top:36px;
+  color:#fff;
+}
+/* 右边文字部分 */
+.bg-right-text{
+  line-height: 30px;
+  padding-left:24px;
+}
+/* 设置背景 */
+.bg-right{
+  width:80px;
+  position:relative;
+  background:#46e7f9;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+/* 分割线 */
+.cut-off{
+  height:6px;
+  background:#f1f1f1;
+  margin:5px 0;
+}
+/* 访问时的样式 */
+.active{
+  color:#47cfd3;
+  
+}
+.active::after{
+  background:#3bd0cf;
+}
+/* 下面主体部分 */
+.main-tit{
+  border-bottom:1px solid #f1f1f1;
+ 
+}
+/* 标题左右部分 */
+.main-tit1,.main-tit2{
+  margin:0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+.main-tit1>span,.main-tit2>span{
+  letter-spacing: 1px;
+  font-size:14px;
+  line-height: 30px;
+}
+.main-tit1::after,.main-tit2::after{
+  display: inline-block;
+  content: "";
+  width:19px;
+  height:2px;
+  margin-top:5px;
+  /* #6a6a6a */
+}
+/* 内容 收入部分 */
+.income{
+  margin:0 15px;
+  padding-bottom: 100px;
+}
+/* 信息部分 */
+.income-con{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+/* 信息 左边 */
+.income-left{
+  display:flex;
+  flex-direction:column;
+}
+/* 左边字体样式微调 */
+.income-left>b{
+  font-size:15px;
+  font-weight: normal;
+  margin-top: 12px;
+}
+.income-left>i{
+  font-size:12px;
+  font-weight: normal;
+  margin-top: 8px;
+  color:#a2a2a2;
+}
+/* 信息 右边 */
+.income-right{
+  align-self: center;
+  color:#47c8c4;
+  font-weight: 500;
+}
+/* 消费面板 */
+.consume{
+  display: flex;
+}
+.consume>div{
+  margin:100px auto 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.consume>div>span{
+  color:#b2b2b2;
+  font-weight: 500;
+}
+/* 设置背景图片 */
+.icon-i5{
+  width:75px;
+  height:83px;
+  background:url(../../../public/imgs/mine/books.png) no-repeat;
+  background-size: 100%;
+}
+/* 隐藏元素 */
+.d-none{
+  display: none;
+}
 </style>

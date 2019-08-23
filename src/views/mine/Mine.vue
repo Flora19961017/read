@@ -5,20 +5,19 @@
       <!-- 此按钮跳转到小写列表 -->
       <a href="javascript:;" @click="news" ><span class="bg-ld"></span></a>
     </div>
-    
     <!-- 包裹图片，加文字 -->
     <div class="d-flex margin-b">
       <div class="imgAndText">
         <!-- 图片，头像 -->
-        <img src="../../../public/imgs/mine/user.jpg" alt="" class="user" @click="img" v-if="!list">
-        <img src="../../../public/imgs/mine/official.png" v-else class="u-img"> 
-        <div class="loginOrReg" @click="logOrReg" v-if="!list">
+        <img src="../../../public/imgs/mine/official.png" v-if="isLogin" class="u-img"  @click="editData">
+        <img src="../../../public/imgs/mine/user.png" alt="" class="user" @click="logOrReg" v-else>
+        <div class="user-name" @click="editData" v-if="isLogin">{{list.user_name}}</div>
+        <div class="loginOrReg" @click="logOrReg" v-else>
           <!-- 上下排列，文字加文字 -->
           <span class="text-f1 text-f1-posi">登录</span>
           <span>/</span>
           <span class="text-f1 text-f1-posi">注册</span>
         </div>
-        <div v-else class="user-name" @click="editData">{{list.user_name}}</div>
       </div>
       <div class="btn-posi">
         <!-- 设置签到部分 -->
@@ -33,7 +32,7 @@
       <!-- 余额 -->
       <div class="text-flex text-align" @click="yuE">
         <!-- 上下 -->
-        <span class="text-f1 m-bottom"><i class="text-f1">0书币</i></span>
+        <span class="text-f1 m-bottom"><i class="text-f1">{{list.money}}书币</i></span>
         <span class="text-f2 ">余额</span>
       </div>
       <!-- 福利 -->
@@ -45,7 +44,7 @@
       </div>
       <!-- VIP -->
       <div class="text-flex">
-        <span>图片</span>
+        <span class="bgPosi bgVip"></span>
         <span class="text-f2">VIP</span>
       </div>
     </div>
@@ -53,11 +52,6 @@
     <!-- <div></div> -->
     <!-- 按钮，小图标+文字+小图标 -->
     <!-- 给一个div，背景为银色 -->
-
-
-    <div>{{this.list}}</div>
-
-
     <div class="bgColor"></div>
     <div class="borderSty">
       <a href="javascript:;" class="d-flex aStyle">
@@ -106,9 +100,7 @@
         <i class="iStyle"></i>
       </a>
     </div>
-    
     <myfooter></myfooter> 
-    
   </div>
 </template>
 <script>
@@ -120,8 +112,10 @@ import Reg from "../Login"
 export default {
   data(){
     return{
-      // 保存动态数据
-      list:"",
+      // 1.保存用户数据
+      list:{money:0},
+      // 2.保存用户登录状态(初始值为false)
+      isLogin:false
     }
   },
   // 注册
@@ -131,7 +125,7 @@ export default {
   },
   methods:{
     img(){
-      console.log(this.$route.query.data.result[0]);
+      // console.log(this.$route.query.data.result[0]);
     },
     // 1.跳转页面到消息
     news(){
@@ -159,16 +153,12 @@ export default {
     }
   },
    mounted(){
-    // 判断是否接收到了服务器返回值
-    // var res = this.$route.params.data.result[0];
-    // console.log(this.$route.params.data.result[0]);
-    if(this.$route.params.data){
-      // console.log(this.$route);
-      // console.log(this.$route.params.data.result[0]);
-      this.list = this.$route.params.data.result[0];
-     
-    }
-    
+   if(this.$store.getters.result!=0){
+    // 1.将数据保存到list
+     this.list = this.$store.getters.result.result[0];
+    // 2.获取登录状态
+    this.isLogin = this.$store.getters.isLogin;
+   } 
   }
 }
 </script>
@@ -178,10 +168,11 @@ export default {
   /* 设置小图标 */
   .bgPosi{
     display: inline-block;
-    width:17px;
-    height:17px;
+    width:30px;
+    height:21px;
     vertical-align: middle;
-    margin:0 8px;
+    margin:0 6px;
+    background:url(../../../public/imgs/mine/mine.jpg) no-repeat;
   }
   i{
     font-style:normal;
@@ -218,6 +209,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     
   }
   /* 设置余额与福利中心的弹性 */
@@ -233,6 +225,13 @@ export default {
   .text-f2{
     font-size:10px;
     color:#999;
+  }
+  /* 设置VIP背景图 */
+  .bgVip{
+    height:27px;
+    background:url(../../../public/imgs/mine/vip.png) no-repeat;
+    background-size:100%;
+    margin:0;
   }
   /* 设置下外边距 */
   .margin-b{
@@ -352,27 +351,27 @@ export default {
   }
   
   .bgImg1{
-    background:url(../../../public/imgs/mine/record.png) no-repeat;
+    background:url(../../../public/imgs/mine/mine.jpg) no-repeat;
     background-size:100%;
   }
   .bgImg2{
-    background:url(../../../public/imgs/mine/sex.png) no-repeat;
+    background-position: 0 -57px;
     background-size:100%;
   }
   .bgImg3{
-    background:url(../../../public/imgs/mine/taste.png) no-repeat;
+    background-position: 0 -114px;
     background-size:100%;
   }
   .bgImg4{
-    background:url(../../../public/imgs/mine/fk.png) no-repeat;
+    background-position: 0 -169px;
     background-size:100%;
   }
   .bgImg5{
-    background:url(../../../public/imgs/mine/quession.png) no-repeat;
+    background-position: 0 -225px;
     background-size:100%;
   }
   .bgImg6{
-    background:url(../../../public/imgs/mine/set.png) no-repeat;
+    background-position: 0 -279px;
     background-size:100%;
   }
   /*让文字和图片居中 */
@@ -385,7 +384,8 @@ export default {
   }
   /* 设置文字样式 */
   .text-f3{
-    font-size:14px;
+    font-size:13px;
+    letter-spacing: .3px;
   }
   /* 设置铃铛背景图片 */
   .bg-ld{
@@ -404,6 +404,8 @@ export default {
  
   /* 设置方向小图标 */
   .qd-dire{
+    width:17px;
+    height:17px;
     margin:0;
     background:url(../../../public/imgs/mine/arr-right.png) no-repeat;
     background-size:100%;

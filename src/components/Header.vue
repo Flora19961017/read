@@ -37,7 +37,7 @@ export default {
     },
     methods:{
         goSearch(){
-            this.$router.push("/Search")
+            this.$router.push("/SearchHot")
         }
     }
 }

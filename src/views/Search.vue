@@ -8,12 +8,12 @@
         <i class="bg-icon-search"></i>
         <!-- 清空输入框 -->
         <span class="icon-del d-none" @click="empty">&times;</span>
-        <input type="text" class="posi-text input" placeholder="请输入关键字" @keyup="isDis" v-model="content">
+        <input type="text" class="posi-text input" placeholder="请输入关键字" @keyup="isDis" v-model="content" @keyup.13="search">
       </div>
-     <a href="javascript:;" class="search">搜索</a>
+     <a href="javascript:;" class="search" @click="search">搜索</a>
    </div>
    <!-- 热词搜素 -->
-   <div class="hot-world">
+   <!-- <div class="hot-world">
      <small class="hot-tit">热词搜素</small>
      <ul class="hot-ul">
        <li>言情</li>
@@ -29,9 +29,9 @@
        <li>屌丝</li>
        <li>穿越</li>
      </ul>
-   </div>
+   </div> -->
    <!-- 热门搜素 -->
-   <div class="hot-door">
+   <!-- <div class="hot-door">
      <small class="hot-tit">热门搜素</small>
      <ul class="hot-door-ul">
        <li>
@@ -72,7 +72,7 @@
 
        </li>
      </ul>
-   </div>
+   </div> -->
   </div>
 </template>
 <script>
@@ -86,6 +86,9 @@ export default {
   },
   components:{
     "head-view":Header
+  },
+  mounted() {
+    this.content=this.$route.params.content;
   },
   methods:{
     // 输入内容时，显示删除文字的按钮
@@ -109,6 +112,9 @@ export default {
       var span = document.getElementsByClassName("icon-del")[0];
       // 3.添加类名，使其隐藏
       span.classList.add("d-none");
+    },
+    search(){
+      this.$router.push("")
     }
   }
 }
@@ -213,9 +219,9 @@ export default {
 .hot-door{
   padding:10px 15px;
 }
-.hot-door-ul{
+/* .hot-door-ul{
   
-}
+} */
 .hot-door-ul:after{
   display:block;
   content:"";
