@@ -287,10 +287,14 @@ export default {
   text-align: center;
   position: fixed;
   bottom: 0;
+  background:#fff;
 }
-.book-detl span{
+.book-detl .btn-btm>span{
   width: 33.33%;
   padding: .5rem 0;
+}
+.book-detl .readBook{
+  background-color: #5dc8d4;
 }
 .book-detl .btn-btm img{
   width: 3.5rem;
