@@ -7,6 +7,7 @@ import MintUI from "mint-ui"
 import "mint-ui/lib/style.css"
 import qs from "qs"
 Vue.use(MintUI)
+//这是测试
 // 引入全局组件轮播图
 // import MyCarousel from './components/choice/Carousel'
 
