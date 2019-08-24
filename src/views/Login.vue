@@ -174,7 +174,9 @@ export default {
           if(data.code==1){      
             // (5.1)获取的数据传到Mine
             
-            this.$root.eventHub.$emit("result",data);
+            var obj = res.data.obj;
+            var data = obj.user;
+            this.$store.commit("data",obj);
             // (5.2) 页面跳转到 Index页面
             this.$router.push({
               name:"mine",

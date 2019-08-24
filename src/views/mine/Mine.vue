@@ -155,7 +155,7 @@ export default {
    mounted(){
    if(this.$store.getters.result!=0){
     // 1.将数据保存到list
-     this.list = this.$store.getters.result.result[0];
+      this.list = this.$store.getters.result;
     // 2.获取登录状态
     this.isLogin = this.$store.getters.isLogin;
    } 
