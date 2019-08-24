@@ -173,7 +173,6 @@ export default {
           // (5)如果为1，登录成功，跳转页面重新用户加载数据
           if(data.code==1){      
             // (5.1)获取的数据传到Mine
-            
             var obj = res.data.obj;
             var data = obj.user;
             this.$store.commit("data",obj);
@@ -182,7 +181,7 @@ export default {
               name:"mine",
               params:{data}
             });
-            this.$store.commit("data",data);
+            
           }else if(data.code==-1){
             // (6)如果为0，登录失败并且清空密码，提示用户名或密码错误
             this.$toast("用户名或密码错误");

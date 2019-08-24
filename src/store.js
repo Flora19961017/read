@@ -16,9 +16,11 @@ export default new Vuex.Store({
     // 1.用户登录成功后调用
     data(state,res){
       // 1.1将返回的用户数据保存在list
+      console.log(res);
       state.list= res.user[0];
-      // 1.11将返回的书架书籍保存在bookShelf
-      state.bookShelf = res.book;
+      // 1.11将返回的书架书籍保存在bookShelf,如果不是undefi的话
+      
+      (res.book.length>0)&&(state.bookShelf = res.book);
       // 1.2将登录状态改为true
       state.isLogin = true;
     }

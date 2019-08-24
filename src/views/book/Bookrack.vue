@@ -110,6 +110,10 @@ export default {
   created(){
     // 1.调用加载数据函数，加载书架信息
     this.load();
+  },
+  computed(){
+    this.load();
+    
   }
 
 }

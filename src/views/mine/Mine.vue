@@ -429,6 +429,7 @@ export default {
   /* 用户的头像 */
   .u-img{
     width:50px;
+    height:50px;
   }
 </style>
 

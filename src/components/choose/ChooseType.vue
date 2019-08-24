@@ -166,6 +166,10 @@ export default {
     }
   } 
 }
+},
+// 跳转到 我的 页面
+start(){
+  this.$router.push("/Mine");
 }
 }
 }

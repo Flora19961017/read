@@ -63,7 +63,7 @@
     </h3>
     <two-rows/>
     <div class="btn-btm">
-      <span class="addBook">
+      <span class="addBook" @click="addBook">
         <img src="../../assets/imgs/detail/addbook.png" alt="">
       </span>
       <span class="readBook">
@@ -78,6 +78,7 @@
 <script>
 import Comm from '../../components/choice/subPage/Comment'
 import TwoRows from '../../components/choice/TwoRows'
+import qs from 'qs'
 export default {
   data(){
     return{
@@ -108,6 +109,31 @@ export default {
       // })
       this.list=this.$route.query.book;
       // console.log(this.list)
+    },
+    // 点击按钮将书籍添加至书架
+    addBook(){
+      // 1.获取书籍基本信息
+      var url = "addBook";
+      var list = this.$store.getters.result;
+      var bid = list.uid;
+      var user_name = list.user_name;
+      var u_img = this.list.u_img;
+      var title = this.list.title;
+      var cover_img = this.list.pic;
+      // 2.获取发送ajax请求必要的参数
+      var obj = {bid,user_name,u_img,title,cover_img};
+      // 3.发送ajax请求，将数据添加到bookshelf数据表中
+      this.axios.post(url,qs.stringify(obj)).then(res=>{
+      // 4.添加成功提示，书名+ 成功加入书架 
+      console.log(res);
+        if(res.data.code>0){
+          // 5.短消息提示，加入书架成功
+          this.$toast(`${title} 已加入书架`);
+        }
+      })
+      
+      
+      
     }
   },
 }
