@@ -101,9 +101,7 @@ export default {
     load(){
       // 5.1判断判断vuex中是否存放有数据
       if(this.$store.getters.books!="0"){
-        console.log(this.$store.getters.books);
         this.list = this.$store.getters.books;
-        console.log(1);
       }
     }
   },
@@ -111,7 +109,7 @@ export default {
     // 1.调用加载数据函数，加载书架信息
     this.load();
   },
-  computed(){
+  mounted(){
     this.load();
     
   }
@@ -247,6 +245,7 @@ export default {
     float:left;
   }
   .bookrack-div{
+    width:78px;
     display:flex;
     flex-direction: column;
     padding:0 17px 0 11px;
@@ -267,6 +266,7 @@ export default {
     font-size:12px;
     margin:15px 0 11px 0;
     opacity: .6;
+    white-space: nowrap;
   }
   /* 添加书籍 */
   .add-div{

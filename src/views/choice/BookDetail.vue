@@ -125,16 +125,21 @@ export default {
       // 3.发送ajax请求，将数据添加到bookshelf数据表中
       this.axios.post(url,qs.stringify(obj)).then(res=>{
       // 4.添加成功提示，书名+ 成功加入书架 
-      console.log(res);
         if(res.data.code>0){
-          // 5.短消息提示，加入书架成功
+          // 5.将vuex中的书架信息更新
+          this.$store.commit("addBook",obj);
+          // 6.短消息提示，加入书架成功
           this.$toast(`${title} 已加入书架`);
+        }else if(res.data.code==0){
+          // 7.否则提示短消息书籍已存在
+          this.$toast("该书籍已存在");
+        }else{
+          // 8.否则，操作失败
+          this.$toast("操作失败");
         }
       })
-      
-      
-      
-    }
+    },
+    // 更新vuex中的信息
   },
 }
 </script>

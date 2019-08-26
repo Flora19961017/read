@@ -131,7 +131,6 @@ export default {
     news(){
       // 跳转页面
       this.$router.push("/Inform");
-      console.log(this.list);
     },
     // 2.跳转页面到余额
     // 跳转到余额
